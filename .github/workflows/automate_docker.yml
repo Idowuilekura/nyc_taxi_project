@@ -17,7 +17,7 @@ jobs:
               run: |
                 pip install pytest 
                 pip install -r ./docker_sql/requirements.txt
-                pytest ./test/test_download_data.py
+                pytest ./docker_sql/test/test_download_data.py
               working-directory: ${{ github.workspace }}
 
             - name: get the tag for the docker image and tag
