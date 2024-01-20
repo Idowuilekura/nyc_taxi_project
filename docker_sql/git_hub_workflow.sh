@@ -9,11 +9,13 @@ fi
 echo "Current Version: $CURRENT_VERSION"
 
 if git log --grep=major
-    then  
+then  
     VERSION='MAJOR'
 elif git log --grep=minor
+then
     VERSION='MINOR'
 elif git log --grep=patch
+then
     VERSION='PATCH'
 else
     echo "the commit doesn't have any version type"
