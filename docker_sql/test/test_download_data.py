@@ -1,13 +1,13 @@
 # import etl_script
 # from ..etl_script import ny_taxi_extract
-from ..etl_script.ny_taxi_extract import download_store_data
-from ..etl_script.ny_taxi_transform import transform_data
+from docker_sql.etl_script.ny_taxi_extract import download_store_data
+from docker_sql.etl_script.ny_taxi_transform import transform_data
 # from ..etl_script.ny_taxi_extract import download_store_data
 # from ..etl_script.ny_taxi_load_sql import create_table_load_data, create_dimension_table_statement, create_time_table_statement, fact_table_creation_sql, engine
-from ..etl_script.ny_taxi_load_sql import fact_dimension_sql_statement, create_time_table_statement, engine, create_table_load_data
+# from ..etl_script.ny_taxi_load_sql import fact_dimension_sql_statement, create_time_table_statement, engine, create_table_load_data
 import pandas as pd
 # import connectorx as cx
-import connectorx as cx
+# import connectorx as cx
 
 # connect_string = 'postgresql://idowu_user:idowupassword@localhost:5434/nyc_taxi'
 # create_time_table_statement , create_dimension_table_statement, create_fact_table_statement = fact_dimension_sql_statement('datetime_trip_table_test','DIMENSION_TAXI_TABLE_test','fact_table_taxi_ride_test')
@@ -45,11 +45,11 @@ import connectorx as cx
 #     config.pluginmanager.register(MyPlugin(), 'my_plugin')
 # create_table_load_data(fact_data_table, 'fact_table_taxi_ride', fact_table_creation_sql)
 
-def read_files_from_database_df(table_name):
-    sql_statement = f"select * from {table_name} LIMIT 5"
-    data = cx.read_sql(connect_string, sql_statement)
+# def read_files_from_database_df(table_name):
+#     sql_statement = f"select * from {table_name} LIMIT 5"
+#     data = cx.read_sql(connect_string, sql_statement)
 
-    return len(data)
+#     return len(data)
 
 def test_download_file(tmp_path):
     tmp_dir = tmp_path /"test_folder"
