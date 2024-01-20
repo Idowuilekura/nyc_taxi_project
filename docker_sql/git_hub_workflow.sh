@@ -38,7 +38,7 @@ if [[ $VERSION == "MAJOR" ]]
 elif [[ $VERSION == "MINOR" ]]
     then 
     VNUM2=$(($VUM2+1))
-elif [[ $VERSION == "PATCH "]]
+elif [[ $VERSION == "PATCH" ]]
     then 
     VNUM3=$(($VNUM3+1))
 else 
