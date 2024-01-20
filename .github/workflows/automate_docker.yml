@@ -19,7 +19,7 @@ jobs:
                 pip install pytest 
                 pip install -r ${{ github.workspace }}/requirements.txt
                 pytest ./test/test_download_data.py
-              working-directory: ${{ github.workspace }}
+      
             - name: get the tag for the docker image and tag
               id: increment-docker-image-git-tag
               run: |
