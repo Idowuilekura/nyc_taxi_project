@@ -8,6 +8,8 @@ then
     CURRENT_VERSION='v0.1.0'
 fi
 
+CURRENT_VERSION='v0.1.0'
+
 echo "Current Version: $CURRENT_VERSION"
 
 if git log --grep=major
@@ -26,15 +28,23 @@ fi
 echo 'version is' $VERSION
 # split the current version
 
-CURRENT_VERSION_PARTS=(${CURRENT_VERSION//./})
-VNUM1=${CURRENT_VERSION_PARTS[0]}
-VNUM2=${CURRENT_VERSION_PARTS[1]}
-VNUM3=${CURRENT_VERSION_PARTS[2]}
+# CURRENT_VERSION_PARTS=(${CURRENT_VERSION//./})
+# VNUM1=${CURRENT_VERSION_PARTS[0]}
+# VNUM2=${CURRENT_VERSION_PARTS[1]}
+# VNUM3=${CURRENT_VERSION_PARTS[2]}
+
+# CURRENT_VERSION='v1.0.1'
+VNUM1=$(echo "$CURRENT_VERSION" | cut -d '.' -f 1)
+VNUM2=$(echo "$CURRENT_VERSION" | cut -d '.' -f 2)
+VNUM3=$(echo "$CURRENT_VERSION" | cut -d '.' -f 3)
+
+VNUM1=${VNUM1#v}
+
+
 
 if [[ $VERSION == "MAJOR" ]]
     then 
-    VNUM_NUMERICAL_PART="${VNUM1#v}"
-    VNUM1="v$(($VNUM_NUMERICAL_PART+1))"
+    VNUM1="$(($VNUM_NUMERICAL_PART+1))"
 elif [[ $VERSION == "MINOR" ]]
     then 
     VNUM2=$(($VUM2+1))
@@ -46,7 +56,7 @@ else
     exit 1
 fi
 
-NEW_TAG="$VNUM1:$VNUM2:$VNUM3"
+NEW_TAG="v$VNUM1.$VNUM2.$VNUM3"
 
 
 
