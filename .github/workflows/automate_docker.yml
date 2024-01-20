@@ -5,6 +5,9 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
+        defaults:
+          run:
+            working-directory: ./app
         
         steps:
             - name: Checkout Code
@@ -17,10 +20,10 @@ jobs:
             - name: test the code
               run: |
                 pip install pytest 
-                pip install -r ./requirements.txt
+                pip install -r requirements.txt
                 pytest ./test/test_download_data.py
               working-directory: ${{ github.workspace }}
-              
+
             - name: get the tag for the docker image and tag
               id: increment-docker-image-git-tag
               run: |
