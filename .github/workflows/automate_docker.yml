@@ -23,8 +23,8 @@ jobs:
             - name: get the tag for the docker image and tag
               id: increment-docker-image-git-tag
               run: |
-                chmod +x ./git_hub_workflow.sh 
-                bash ./git_hub_workflow.sh
+                chmod +x ./docker_sql/git_hub_workflow.sh 
+                bash ./docker_sql/git_hub_workflow.sh
               working-directory: ${{ github.workspace }}
 
             - name: Login to Docker Hub, build image and push
