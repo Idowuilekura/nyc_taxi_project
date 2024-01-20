@@ -39,10 +39,12 @@ elif [[ $VERSION == "MINOR" ]]
     then 
     VNUM2=$(($VUM2+1))
 elif [[ $VERSION == "PATCH" ]]
-    then 
+then 
     VNUM3=$(($VNUM3+1))
 else 
     echo "Specify the commit does not have a version type"
+    exit 1
+fi
 
 NEW_TAG="$VNUM1:$VNUM2:$VNUM3"
 
@@ -67,8 +69,3 @@ fi
 echo ::set-output name=git-tag::$NEW_TAG
 
 exit 0
-
-
-
-
-
