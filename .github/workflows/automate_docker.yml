@@ -4,11 +4,7 @@ on:
         branches: [ "master" ]
 jobs:
     build:
-        runs-on: ubuntu-latest
-        defaults:
-          run:
-            working-directory: ./app
-        
+        runs-on: ubuntu-latest 
         steps:
             - name: Checkout Code
               uses: actions/checkout@v2 
@@ -20,7 +16,7 @@ jobs:
             - name: test the code
               run: |
                 pip install pytest 
-                pip install -r requirements.txt
+                pip install -r ./docker_sql/requirements.txt
                 pytest ./test/test_download_data.py
               working-directory: ${{ github.workspace }}
 
