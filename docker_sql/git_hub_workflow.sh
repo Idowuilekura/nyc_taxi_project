@@ -1,3 +1,5 @@
+#! /usr/bin/bash
+
 git fetch --prune --unshallow 2>/dev/null
 CURRENT_VERSION=`git describe --abbrev=0 --tags 2>/dev/null`
 
