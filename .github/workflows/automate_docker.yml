@@ -22,6 +22,7 @@ jobs:
 
             - name: get the tag for the docker image and tag
               id: increment-docker-image-git-tag
+              shell: bash
               run: |
                 chmod +x ./docker_sql/git_hub_workflow.sh 
                 bash ./docker_sql/git_hub_workflow.sh
