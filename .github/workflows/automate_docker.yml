@@ -33,11 +33,12 @@ jobs:
               env:
                 DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }} 
                 DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+                DOCKER_SECRET_TOKEN: ${{ secrets.DOCKER_SECRET_TOKEN }}
                 DOCKER_REPOSITORY_IMAGE: idowuilekura/nyc_taxi_data
                 IMAGE_TAG: ${{ steps.increment-docker-image-git-tag.outputs.git-tag }}
               run: |
-                docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-                docker build -t $DOCKER_REPOSITORY_IMAGE:$IMAGE_TAG .
+                echo $DOCKER_SECRET_TOKEN | docker login -u $DOCKER_USERNAME --password-stdin
+                docker build -t $DOCKER_REPOSITORY_IMAGE:$IMAGE_TAG -f ./docker_sql/Dockerfile
                 docker push $DOCKER_REPOSITORY_IMAGE:$IMAGE_TAG
               working-directory: ${{ github.workspace }}
 
