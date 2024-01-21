@@ -44,7 +44,7 @@ VNUM1=${VNUM1#v}
 
 if [[ $VERSION == "MAJOR" ]]
     then 
-    VNUM1="$(($VNUM_NUMERICAL_PART+1))"
+    VNUM1="$(($VNUM1+1))"
 elif [[ $VERSION == "MINOR" ]]
     then 
     VNUM2=$(($VUM2+1))
