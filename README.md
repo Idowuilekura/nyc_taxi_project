@@ -1,8 +1,8 @@
-NyTaxi Ride-Hailing ETL Pipeline
-Problem Statement
+# NyTaxi Ride-Hailing ETL Pipeline
+## Problem Statement
 In the 21st century, ride-hailing transportation has surged, disrupting traditional taxi businesses. The success of ride-hailing services is attributed to the convenience of passengers booking rides directly from their phones. This success has resulted in a substantial migration of individuals to these platforms, generating vast amounts of data that can be leveraged for analysis. The objective of this project is to develop an ETL (Extract, Transform, Load) pipeline for ingesting data into a PostgreSQL database. The entire pipeline is encapsulated within a Docker container, and a CI/CD (Continuous Integration/Continuous Deployment) pipeline, powered by GitHub Actions, is implemented to automate the versioned deployment of the Docker image to the DockerHub registry.
 
-Tools Used
+## Tools Used
 The chosen tools for this project encompass a comprehensive set of technologies to ensure efficiency and reliability:
 
 ETL Framework:
