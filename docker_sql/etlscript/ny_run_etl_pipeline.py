@@ -12,10 +12,10 @@ from pyspark.sql.types import StringType
 from pyspark.sql.functions import col, year, month, dayofmonth, hour, minute, dayofweek, date_format, last_day
 
 # from ny_taxi_transform import transform_data
-from etlscript.ny_taxi_pyspark_transform import transform_data
-from etlscript.ny_taxi_extract import download_store_data
+from docker_sql.etlscript.ny_taxi_pyspark_transform import transform_data
+from docker_sql.etlscript.ny_taxi_extract import download_store_data
 # from ny_taxi_load_sql import create_table_load_data, create_dimension_table_statement, create_time_table_statement, fact_table_creation_sql
-from etlscript.ny_taxi_load_sql import fact_dimension_sql_statement,create_table_load_data
+from docker_sql.etlscript.ny_taxi_load_sql import fact_dimension_sql_statement,create_table_load_data
 import pandas as pd
 import os
 cwd = os.getcwd()
