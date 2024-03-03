@@ -21,9 +21,11 @@ jobs:
                 POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
                 POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
                 POSTGRES_DBNAME: ${{ secrets.POSTGRES_DBNAME }}
-                shell: bash
               run: |
                 pip install pytest 
+                # export PYTHONPATH="${pwd}/docker_sql:${PYTHONPATH}"
+                echo $(pwd)
+                python -c "import docker_sql"
                 SPARK_HOME=$(mktemp -d)
                 export SPARK_HOME="${SPARK_HOME}"
                 wget https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz &&tar -xvf openjdk-11.0.2_linux-x64_bin.tar.gz  --directory ${SPARK_HOME}
@@ -34,8 +36,8 @@ jobs:
                 export PATH="${SPARK_HOME}/bin:${PATH}" 
                 export PYTHONPATH="${SPARK_HOME}/python/:$PYTHONPATH"
                 export PYTHONPATH="${SPARK_HOME}/python/lib/py4j-0.10.9.5-src.zip:$PYTHONPATH"
-                export PYTHONPATH="${HOME}/nyc_taxi_project/docker_sql/etl_scripts:$PYTHONPATH"
                 pip install -r ./docker_sql/requirements.txt
                 pip install pyspark
                 pytest ./docker_sql/test/test_download_data.py
               working-directory: ${{ github.workspace }}
+                
