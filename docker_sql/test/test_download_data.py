@@ -1,8 +1,8 @@
 # import etl_script
 # # from ..etl_script import ny_taxi_extract
-from etl_script.ny_run_etl_pipeline import download_load_data_test
+from docker_sql.etl_script.ny_run_etl_pipeline import download_load_data_test
 # from docker_sql.etl_script.ny_taxi_transform import transform_data
-from etl_script.ny_taxi_extract import download_store_data
+from docker_sql.etl_script.ny_taxi_extract import download_store_data
 # # from ..etl_script.ny_taxi_load_sql import create_table_load_data, create_dimension_table_statement, create_time_table_statement, fact_table_creation_sql, engine
 # # from ..etl_script.ny_taxi_load_sql import fact_dimension_sql_statement, create_time_table_statement, engine, create_table_load_data
 import pandas as pd
@@ -17,10 +17,10 @@ from pyspark.sql.types import StringType
 from pyspark.sql.functions import col, year, month, dayofmonth, hour, minute, dayofweek, date_format, last_day
 
 # from ny_taxi_transform import transform_data
-from etl_script.ny_taxi_pyspark_transform import transform_data
+from docker_sql.etl_script.ny_taxi_pyspark_transform import transform_data
 # from etl_script.ny_taxi_extract import download_store_data
 # from ny_taxi_load_sql import create_table_load_data, create_dimension_table_statement, create_time_table_statement, fact_table_creation_sql
-from etl_script.ny_taxi_load_sql import fact_dimension_sql_statement,create_table_load_data
+from docker_sql.etl_script.ny_taxi_load_sql import fact_dimension_sql_statement,create_table_load_data
 import pandas as pd
 from sqlalchemy import create_engine
 from urllib.parse import quote_plus
@@ -107,7 +107,7 @@ def test_load_into_database(tmp_path):
     schema_name = 'raw_test'
     data = data.head(5)
     drop_table = True
-    download_load_data_test(2023, 3, tmp_dir,spark,jdbc_uri,db_user,db_password,engine,drop_table,schema_name,create_new_folder=False)
+    download_load_data_test(2023, 3, tmp_dir,spark,jdbc_uri,db_user,db_password_quote,engine,drop_table,schema_name,create_new_folder=False)
     
 #     dimension_table_data, time_table_data, fact_data_table = transform_data(data)
 
