@@ -56,3 +56,4 @@ Compliance:
 
 Adherence to data protection regulations and privacy laws. Implementation of data anonymization mechanisms when necessary.
 By integrating these tools and considering the extended information, the NyTaxi Ride-Hailing ETL Pipeline is poised to be a robust and efficient solution, aligning with the project's overarching objectives.
+dfd
