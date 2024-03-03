@@ -1,0 +1,843 @@
+[2024-02-29T04:28:06.607+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:28:06.618+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:28:06.619+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T04:28:06.635+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-01-01 00:00:00+00:00
+[2024-02-29T04:28:06.642+0000] {standard_task_runner.py:60} INFO - Started process 1214349 to run task
+[2024-02-29T04:28:06.645+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-01-01T00:00:00+00:00', '--job-id', '8', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmpz0a9z68s']
+[2024-02-29T04:28:06.647+0000] {standard_task_runner.py:88} INFO - Job 8: Subtask download_load_data
+[2024-02-29T04:28:06.738+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T04:28:06.953+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T04:28:07.029+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-01-01T00:00:00+00:00'
+[2024-02-29T04:28:07.030+0000] {logging_mixin.py:188} INFO - /2021_data
+[2024-02-29T04:28:07.031+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 27, in download_load_data
+    data_path, folder_path = download_store_data(year, month, parent_folder_path=parent_folder_path, create_new_folder=create_new_folder)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_extract.py", line 20, in download_store_data
+    os.makedirs(file_path, exist_ok=True,mode=0o777)
+  File "/usr/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '/2021_data'
+[2024-02-29T04:28:07.061+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210101T000000, start_date=20240229T042806, end_date=20240229T042807
+[2024-02-29T04:28:07.079+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 8 for task download_load_data ([Errno 13] Permission denied: '/2021_data'; 1214349)
+[2024-02-29T04:28:07.097+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-29T04:39:34.523+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:39:34.535+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:39:34.536+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T04:39:34.554+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-01-01 00:00:00+00:00
+[2024-02-29T04:39:34.560+0000] {standard_task_runner.py:60} INFO - Started process 1226841 to run task
+[2024-02-29T04:39:34.564+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-01-01T00:00:00+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmp_xd38_c0']
+[2024-02-29T04:39:34.566+0000] {standard_task_runner.py:88} INFO - Job 17: Subtask download_load_data
+[2024-02-29T04:39:34.653+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T04:39:34.834+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T04:39:34.895+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-01-01T00:00:00+00:00'
+[2024-02-29T04:39:34.895+0000] {logging_mixin.py:188} INFO - /2021_data
+[2024-02-29T04:39:34.896+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 27, in download_load_data
+    data_path, folder_path = download_store_data(year, month, parent_folder_path=parent_folder_path, create_new_folder=create_new_folder)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_extract.py", line 20, in download_store_data
+    os.makedirs(file_path, exist_ok=True,mode=0o777)
+  File "/usr/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '/2021_data'
+[2024-02-29T04:39:34.916+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210101T000000, start_date=20240229T043934, end_date=20240229T043934
+[2024-02-29T04:39:34.927+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 17 for task download_load_data ([Errno 13] Permission denied: '/2021_data'; 1226841)
+[2024-02-29T04:39:34.976+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-29T04:41:53.663+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:41:53.672+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:41:53.672+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T04:41:53.688+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-01-01 00:00:00+00:00
+[2024-02-29T04:41:53.695+0000] {standard_task_runner.py:60} INFO - Started process 1229627 to run task
+[2024-02-29T04:41:53.698+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-01-01T00:00:00+00:00', '--job-id', '20', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmpar_tjexb']
+[2024-02-29T04:41:53.700+0000] {standard_task_runner.py:88} INFO - Job 20: Subtask download_load_data
+[2024-02-29T04:41:53.791+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T04:41:53.989+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T04:41:54.048+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-01-01T00:00:00+00:00'
+[2024-02-29T04:41:54.049+0000] {logging_mixin.py:188} INFO - /2021_01_data
+[2024-02-29T04:41:54.049+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 27, in download_load_data
+    data_path, folder_path = download_store_data(year, month, parent_folder_path=parent_folder_path, create_new_folder=create_new_folder)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_extract.py", line 20, in download_store_data
+    os.makedirs(file_path, exist_ok=True,mode=0o777)
+  File "/usr/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '/2021_01_data'
+[2024-02-29T04:41:54.070+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210101T000000, start_date=20240229T044153, end_date=20240229T044154
+[2024-02-29T04:41:54.083+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 20 for task download_load_data ([Errno 13] Permission denied: '/2021_01_data'; 1229627)
+[2024-02-29T04:41:54.111+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-29T04:46:04.977+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:46:04.989+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:46:04.989+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T04:46:05.006+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-01-01 00:00:00+00:00
+[2024-02-29T04:46:05.012+0000] {standard_task_runner.py:60} INFO - Started process 1233727 to run task
+[2024-02-29T04:46:05.016+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-01-01T00:00:00+00:00', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmpmmt4riyp']
+[2024-02-29T04:46:05.018+0000] {standard_task_runner.py:88} INFO - Job 24: Subtask download_load_data
+[2024-02-29T04:46:05.104+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T04:46:05.301+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T04:46:05.370+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-01-01T00:00:00+00:00'
+[2024-02-29T04:46:05.371+0000] {logging_mixin.py:188} INFO - /2021_01_data
+[2024-02-29T04:46:05.371+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 27, in download_load_data
+    data_path, folder_path = download_store_data(year, month, parent_folder_path=parent_folder_path, create_new_folder=create_new_folder)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_extract.py", line 21, in download_store_data
+    os.makedirs(file_path, exist_ok=True,mode=0o777)
+  File "/usr/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '/2021_01_data'
+[2024-02-29T04:46:05.390+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210101T000000, start_date=20240229T044604, end_date=20240229T044605
+[2024-02-29T04:46:05.404+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 24 for task download_load_data ([Errno 13] Permission denied: '/2021_01_data'; 1233727)
+[2024-02-29T04:46:05.428+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-29T04:53:21.178+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:53:21.185+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:53:21.185+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T04:53:21.198+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-01-01 00:00:00+00:00
+[2024-02-29T04:53:21.203+0000] {standard_task_runner.py:60} INFO - Started process 1241841 to run task
+[2024-02-29T04:53:21.207+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-01-01T00:00:00+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmp9lm5u85a']
+[2024-02-29T04:53:21.208+0000] {standard_task_runner.py:88} INFO - Job 30: Subtask download_load_data
+[2024-02-29T04:53:21.292+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T04:53:21.470+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T04:53:21.525+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-01-01T00:00:00+00:00'
+[2024-02-29T04:53:21.526+0000] {logging_mixin.py:188} INFO - /2021_01_data
+[2024-02-29T04:53:21.526+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 27, in download_load_data
+    data_path, folder_path = download_store_data(year, month, parent_folder_path=parent_folder_path, create_new_folder=create_new_folder)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_extract.py", line 21, in download_store_data
+    os.makedirs(file_path, exist_ok=True,mode=0o777)
+  File "/usr/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '/2021_01_data'
+[2024-02-29T04:53:21.545+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210101T000000, start_date=20240229T045321, end_date=20240229T045321
+[2024-02-29T04:53:21.556+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 30 for task download_load_data ([Errno 13] Permission denied: '/2021_01_data'; 1241841)
+[2024-02-29T04:53:21.578+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-29T04:55:02.371+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:55:02.381+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:55:02.381+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T04:55:02.399+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-01-01 00:00:00+00:00
+[2024-02-29T04:55:02.407+0000] {standard_task_runner.py:60} INFO - Started process 1244250 to run task
+[2024-02-29T04:55:02.412+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-01-01T00:00:00+00:00', '--job-id', '32', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmpyrwyfxam']
+[2024-02-29T04:55:02.414+0000] {standard_task_runner.py:88} INFO - Job 32: Subtask download_load_data
+[2024-02-29T04:55:02.514+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T04:55:02.706+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T04:55:02.758+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-01-01T00:00:00+00:00'
+[2024-02-29T04:55:02.760+0000] {logging_mixin.py:188} INFO - /2021_01_data
+[2024-02-29T04:55:02.760+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 27, in download_load_data
+    data_path, folder_path = download_store_data(year, month, parent_folder_path=parent_folder_path, create_new_folder=create_new_folder)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_extract.py", line 22, in download_store_data
+    os.makedirs(file_path_new, exist_ok=True,mode=0o777)
+  File "/usr/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '//2021_01_data'
+[2024-02-29T04:55:02.779+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210101T000000, start_date=20240229T045502, end_date=20240229T045502
+[2024-02-29T04:55:02.789+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 32 for task download_load_data ([Errno 13] Permission denied: '//2021_01_data'; 1244250)
+[2024-02-29T04:55:02.828+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-29T04:57:14.970+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:57:14.981+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:57:14.982+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T04:57:14.997+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-01-01 00:00:00+00:00
+[2024-02-29T04:57:15.002+0000] {standard_task_runner.py:60} INFO - Started process 1247341 to run task
+[2024-02-29T04:57:15.005+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-01-01T00:00:00+00:00', '--job-id', '36', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmpweqkss0o']
+[2024-02-29T04:57:15.008+0000] {standard_task_runner.py:88} INFO - Job 36: Subtask download_load_data
+[2024-02-29T04:57:15.101+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T04:57:15.275+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T04:57:15.325+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-01-01T00:00:00+00:00'
+[2024-02-29T04:57:15.326+0000] {logging_mixin.py:188} INFO - <class 'str'>
+[2024-02-29T04:57:15.326+0000] {logging_mixin.py:188} INFO - <class 'str'>
+[2024-02-29T04:57:15.326+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 27, in download_load_data
+    data_path, folder_path = download_store_data(year, month, parent_folder_path=parent_folder_path, create_new_folder=create_new_folder)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_extract.py", line 28, in download_store_data
+    os.system(f"wget {url} -O {file_path}/yellow_tripdata_{year}-{month}.parquet")
+NameError: name 'file_path' is not defined
+[2024-02-29T04:57:15.343+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210101T000000, start_date=20240229T045714, end_date=20240229T045715
+[2024-02-29T04:57:15.356+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 36 for task download_load_data (name 'file_path' is not defined; 1247341)
+[2024-02-29T04:57:15.378+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-29T05:00:11.110+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [queued]>
+[2024-02-29T05:00:11.120+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [queued]>
+[2024-02-29T05:00:11.120+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T05:00:11.135+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-01-01 00:00:00+00:00
+[2024-02-29T05:00:11.141+0000] {standard_task_runner.py:60} INFO - Started process 1250394 to run task
+[2024-02-29T05:00:11.144+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-01-01T00:00:00+00:00', '--job-id', '39', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmppao6iasq']
+[2024-02-29T05:00:11.146+0000] {standard_task_runner.py:88} INFO - Job 39: Subtask download_load_data
+[2024-02-29T05:00:11.238+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T05:00:11.443+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T05:00:11.515+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-01-01T00:00:00+00:00'
+[2024-02-29T05:00:11.517+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 27, in download_load_data
+    data_path, folder_path = download_store_data(year, month, parent_folder_path=parent_folder_path, create_new_folder=create_new_folder)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_extract.py", line 22, in download_store_data
+    os.makedirs(file_path, exist_ok=True,mode=0o777)
+  File "/usr/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '/2021_01_data'
+[2024-02-29T05:00:11.542+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210101T000000, start_date=20240229T050011, end_date=20240229T050011
+[2024-02-29T05:00:11.557+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 39 for task download_load_data ([Errno 13] Permission denied: '/2021_01_data'; 1250394)
+[2024-02-29T05:00:11.597+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-29T05:02:39.140+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [queued]>
+[2024-02-29T05:02:39.150+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [queued]>
+[2024-02-29T05:02:39.150+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T05:02:39.163+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-01-01 00:00:00+00:00
+[2024-02-29T05:02:39.169+0000] {standard_task_runner.py:60} INFO - Started process 1253263 to run task
+[2024-02-29T05:02:39.173+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-01-01T00:00:00+00:00', '--job-id', '41', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmpg2ny4_vc']
+[2024-02-29T05:02:39.175+0000] {standard_task_runner.py:88} INFO - Job 41: Subtask download_load_data
+[2024-02-29T05:02:39.255+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T05:02:39.455+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T05:02:39.511+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-01-01T00:00:00+00:00'
+[2024-02-29T05:02:39.512+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 27, in download_load_data
+    data_path, folder_path = download_store_data(year, month, parent_folder_path=parent_folder_path, create_new_folder=create_new_folder)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_extract.py", line 22, in download_store_data
+    os.makedirs(file_path, exist_ok=True,mode=0o777)
+  File "/usr/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '/2023_1_data'
+[2024-02-29T05:02:39.537+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210101T000000, start_date=20240229T050239, end_date=20240229T050239
+[2024-02-29T05:02:39.549+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 41 for task download_load_data ([Errno 13] Permission denied: '/2023_1_data'; 1253263)
+[2024-02-29T05:02:39.586+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-29T05:05:34.675+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [queued]>
+[2024-02-29T05:05:34.686+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [queued]>
+[2024-02-29T05:05:34.686+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T05:05:34.707+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-01-01 00:00:00+00:00
+[2024-02-29T05:05:34.715+0000] {standard_task_runner.py:60} INFO - Started process 1257050 to run task
+[2024-02-29T05:05:34.719+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-01-01T00:00:00+00:00', '--job-id', '44', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmphddm4lfu']
+[2024-02-29T05:05:34.723+0000] {standard_task_runner.py:88} INFO - Job 44: Subtask download_load_data
+[2024-02-29T05:05:34.823+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T05:05:35.025+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T05:05:35.084+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-01-01T00:00:00+00:00'
+[2024-02-29T05:05:35.085+0000] {logging_mixin.py:188} INFO - <class 'str'>
+[2024-02-29T05:05:35.085+0000] {logging_mixin.py:188} INFO - <class 'str'>
+[2024-02-29T05:05:35.086+0000] {logging_mixin.py:188} INFO - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/2023_1_data
+[2024-02-29T05:05:36.046+0000] {logging_mixin.py:188} INFO - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/2023_1_data/yellow_tripdata_2021-01.parquet
+[2024-02-29T05:05:44.152+0000] {logging_mixin.py:188} INFO - running the create_table_load_data
+[2024-02-29T05:05:44.199+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "pg_namespace_nspname_index"
+DETAIL:  Key (nspname)=(raw) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 38, in download_load_data
+    create_table_load_data(time_table_data, 'datetime_trip_table','raw',create_time_table_statement,engine,jdbc_uri,db_user,db_password_quote)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_load_sql.py", line 304, in create_table_load_data
+    con.exec_driver_sql(sql_statement)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1770, in exec_driver_sql
+    return self._exec_driver_sql(
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1674, in _exec_driver_sql
+    ret = self._execute_context(
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1953, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2134, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "pg_namespace_nspname_index"
+DETAIL:  Key (nspname)=(raw) already exists.
+
+[SQL: CREATE SCHEMA IF NOT EXISTS raw AUTHORIZATION idowuuser;
+    CREATE TABLE IF NOT EXISTS raw.datetime_trip_table (datetime_id VARCHAR PRIMARY KEY, 
+                                                                            tpep_dropoff_datetime TIMESTAMP,
+                                                                            tpep_pickup_datetime TIMESTAMP,
+                                                                            pickup_year INT NOT NULL,
+                                                                                pickup_month INT NOT NULL,
+                                                                                pickup_day INT NOT NULL,
+                                                                                pickup_hour INT NOT NULL,
+                                                                                pickup_minute INT NOT NULL,
+                                                                                pickup_day_of_week INT NOT NULL,
+                                                                                pickup_day_name VARCHAR(15) NOT NULL,
+                                                                                pickup_is_month_end BOOLEAN NOT NULL,
+                                                                                dropoff_year INT NOT NULL,
+                                                                                dropoff_month INT NOT NULL,
+                                                                                dropoff_day INT NOT NULL,
+                                                                                dropoff_hour INT NOT NULL,
+                                                                                dropoff_minute INT NOT NULL,
+                                                                                dropoff_day_of_week INT NOT NULL,
+                                                                                dropoff_day_name VARCHAR(15) NOT NULL,
+                                                                                dropoff_is_month_end BOOLEAN NOT NULL
+                                                                                )
+                                                                                ]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)
+[2024-02-29T05:05:44.233+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210101T000000, start_date=20240229T050534, end_date=20240229T050544
+[2024-02-29T05:05:44.251+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 44 for task download_load_data ((psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "pg_namespace_nspname_index"
+DETAIL:  Key (nspname)=(raw) already exists.
+
+[SQL: CREATE SCHEMA IF NOT EXISTS raw AUTHORIZATION idowuuser;
+    CREATE TABLE IF NOT EXISTS raw.datetime_trip_table (datetime_id VARCHAR PRIMARY KEY, 
+                                                                            tpep_dropoff_datetime TIMESTAMP,
+                                                                            tpep_pickup_datetime TIMESTAMP,
+                                                                            pickup_year INT NOT NULL,
+                                                                                pickup_month INT NOT NULL,
+                                                                                pickup_day INT NOT NULL,
+                                                                                pickup_hour INT NOT NULL,
+                                                                                pickup_minute INT NOT NULL,
+                                                                                pickup_day_of_week INT NOT NULL,
+                                                                                pickup_day_name VARCHAR(15) NOT NULL,
+                                                                                pickup_is_month_end BOOLEAN NOT NULL,
+                                                                                dropoff_year INT NOT NULL,
+                                                                                dropoff_month INT NOT NULL,
+                                                                                dropoff_day INT NOT NULL,
+                                                                                dropoff_hour INT NOT NULL,
+                                                                                dropoff_minute INT NOT NULL,
+                                                                                dropoff_day_of_week INT NOT NULL,
+                                                                                dropoff_day_name VARCHAR(15) NOT NULL,
+                                                                                dropoff_is_month_end BOOLEAN NOT NULL
+                                                                                )
+                                                                                ]
+(Background on this error at: https://sqlalche.me/e/14/gkpj); 1257050)
+[2024-02-29T05:05:44.299+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-29T05:21:59.106+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [queued]>
+[2024-02-29T05:21:59.116+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [queued]>
+[2024-02-29T05:21:59.117+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T05:21:59.136+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-01-01 00:00:00+00:00
+[2024-02-29T05:21:59.141+0000] {standard_task_runner.py:60} INFO - Started process 1277490 to run task
+[2024-02-29T05:21:59.144+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-01-01T00:00:00+00:00', '--job-id', '53', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmp6oldytmm']
+[2024-02-29T05:21:59.146+0000] {standard_task_runner.py:88} INFO - Job 53: Subtask download_load_data
+[2024-02-29T05:21:59.238+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-01-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T05:21:59.461+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T05:21:59.520+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-01-01T00:00:00+00:00'
+[2024-02-29T05:21:59.521+0000] {logging_mixin.py:188} INFO - <class 'str'>
+[2024-02-29T05:21:59.521+0000] {logging_mixin.py:188} INFO - <class 'str'>
+[2024-02-29T05:21:59.522+0000] {logging_mixin.py:188} INFO - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/data/2021_01_data
+[2024-02-29T05:22:00.598+0000] {logging_mixin.py:188} INFO - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/data/2021_01_data/yellow_tripdata_2021-01.parquet
+[2024-02-29T05:22:10.134+0000] {logging_mixin.py:188} INFO - running the create_table_load_data
+[2024-02-29T05:22:10.164+0000] {logging_mixin.py:188} INFO - created the table and schema datetime_trip_table and raw
+[2024-02-29T05:22:10.164+0000] {logging_mixin.py:188} INFO - about to execute read_load_data_db
+[2024-02-29T05:22:10.165+0000] {logging_mixin.py:188} INFO - about to read the previous data from the raw.datetime_trip_table
+[2024-02-29T05:22:10.177+0000] {logging_mixin.py:188} INFO - (10, 19)
+[2024-02-29T05:22:17.978+0000] {logging_mixin.py:188} INFO - got the previous records
+[2024-02-29T05:22:17.979+0000] {logging_mixin.py:188} INFO - appending to table datetime_trip_table with raw
+[2024-02-29T05:22:41.960+0000] {logging_mixin.py:188} INFO - could not read previous records
+[2024-02-29T05:22:41.960+0000] {logging_mixin.py:188} INFO - there are no records in the database
+[2024-02-29T05:23:02.921+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_load_sql.py", line 263, in read_load_data_db
+    df.repartition(100).write.format("jdbc").option("url", jdbc_uri).option("driver", "org.postgresql.Driver").option("dbtable", f"{schema_name}.{table_name}").option("user",db_user).option("password", db_password_quote).mode('append').save()
+  File "/opt/spark/python/pyspark/sql/readwriter.py", line 738, in save
+    self._jwrite.save()
+  File "/opt/spark/python/lib/py4j-0.10.9.2-src.zip/py4j/java_gateway.py", line 1309, in __call__
+    return_value = get_return_value(
+  File "/opt/spark/python/pyspark/sql/utils.py", line 111, in deco
+    return f(*a, **kw)
+  File "/opt/spark/python/lib/py4j-0.10.9.2-src.zip/py4j/protocol.py", line 326, in get_return_value
+    raise Py4JJavaError(
+py4j.protocol.Py4JJavaError: An error occurred while calling o326.save.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 12.0 failed 1 times, most recent failure: Lost task 0.0 in stage 12.0 (TID 23) (idowu-pc.home executor driver): java.sql.BatchUpdateException: Batch entry 0 INSERT INTO raw.datetime_trip_table ("datetime_id","tpep_dropoff_datetime","tpep_pickup_datetime","pickup_year","pickup_month","pickup_day","pickup_hour","pickup_minute","pickup_day_of_week","pickup_day_name","pickup_is_month_end","dropoff_year","dropoff_month","dropoff_day","dropoff_hour","dropoff_minute","dropoff_day_of_week","dropoff_day_name","dropoff_is_month_end") VALUES ('2021-01-23 07:53:23_2021-01-23 08:00:26','2021-01-23 08:00:26+00'::timestamp,'2021-01-23 07:53:23+00'::timestamp,2021,1,23,7,53,7,'Saturday','FALSE',2021,1,23,8,0,7,'Saturday','FALSE') was aborted: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-01-23 07:53:23_2021-01-23 08:00:26) already exists.  Call getNextException to see other errors in the batch.
+	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:165)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2133)
+	at org.postgresql.core.v3.QueryExecutorImpl.flushIfDeadlockRisk(QueryExecutorImpl.java:1490)
+	at org.postgresql.core.v3.QueryExecutorImpl.sendQuery(QueryExecutorImpl.java:1515)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:559)
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:896)
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:919)
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1677)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.savePartition(JdbcUtils.scala:723)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1(JdbcUtils.scala:890)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1$adapted(JdbcUtils.scala:888)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2(RDD.scala:1020)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2$adapted(RDD.scala:1020)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2254)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1462)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-01-23 07:53:23_2021-01-23 08:00:26) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2712)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2400)
+	... 21 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2403)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2352)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2351)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2351)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1109)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1109)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1109)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:2591)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2533)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2522)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:898)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2214)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2235)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2254)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2279)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$1(RDD.scala:1020)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:414)
+	at org.apache.spark.rdd.RDD.foreachPartition(RDD.scala:1018)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.saveTable(JdbcUtils.scala:888)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcRelationProvider.createRelation(JdbcRelationProvider.scala:69)
+	at org.apache.spark.sql.execution.datasources.SaveIntoDataSourceCommand.run(SaveIntoDataSourceCommand.scala:45)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult$lzycompute(commands.scala:75)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult(commands.scala:73)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.executeCollect(commands.scala:84)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:110)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$5(SQLExecution.scala:103)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:163)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:90)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:775)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:64)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:110)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:106)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:82)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:457)
+	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:106)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:93)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:91)
+	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:128)
+	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:848)
+	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:382)
+	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:355)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:247)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: java.sql.BatchUpdateException: Batch entry 0 INSERT INTO raw.datetime_trip_table ("datetime_id","tpep_dropoff_datetime","tpep_pickup_datetime","pickup_year","pickup_month","pickup_day","pickup_hour","pickup_minute","pickup_day_of_week","pickup_day_name","pickup_is_month_end","dropoff_year","dropoff_month","dropoff_day","dropoff_hour","dropoff_minute","dropoff_day_of_week","dropoff_day_name","dropoff_is_month_end") VALUES ('2021-01-23 07:53:23_2021-01-23 08:00:26','2021-01-23 08:00:26+00'::timestamp,'2021-01-23 07:53:23+00'::timestamp,2021,1,23,7,53,7,'Saturday','FALSE',2021,1,23,8,0,7,'Saturday','FALSE') was aborted: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-01-23 07:53:23_2021-01-23 08:00:26) already exists.  Call getNextException to see other errors in the batch.
+	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:165)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2133)
+	at org.postgresql.core.v3.QueryExecutorImpl.flushIfDeadlockRisk(QueryExecutorImpl.java:1490)
+	at org.postgresql.core.v3.QueryExecutorImpl.sendQuery(QueryExecutorImpl.java:1515)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:559)
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:896)
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:919)
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1677)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.savePartition(JdbcUtils.scala:723)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1(JdbcUtils.scala:890)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1$adapted(JdbcUtils.scala:888)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2(RDD.scala:1020)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2$adapted(RDD.scala:1020)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2254)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1462)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	... 1 more
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-01-23 07:53:23_2021-01-23 08:00:26) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2712)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2400)
+	... 21 more
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 38, in download_load_data
+    create_table_load_data(time_table_data, 'datetime_trip_table','raw',create_time_table_statement,engine,jdbc_uri,db_user,db_password_quote)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_load_sql.py", line 321, in create_table_load_data
+    read_load_data_db(df,table_name, schema_name, jdbc_uri, db_user, db_password_quote, engine)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_load_sql.py", line 271, in read_load_data_db
+    df.repartition(100).write.format("jdbc").option("url", jdbc_uri).option("driver", "org.postgresql.Driver").option("dbtable", f"{schema_name}.{table_name}").option("user",db_user).option("password", db_password_quote).mode('append').save()
+  File "/opt/spark/python/pyspark/sql/readwriter.py", line 738, in save
+    self._jwrite.save()
+  File "/opt/spark/python/lib/py4j-0.10.9.2-src.zip/py4j/java_gateway.py", line 1309, in __call__
+    return_value = get_return_value(
+  File "/opt/spark/python/pyspark/sql/utils.py", line 111, in deco
+    return f(*a, **kw)
+  File "/opt/spark/python/lib/py4j-0.10.9.2-src.zip/py4j/protocol.py", line 326, in get_return_value
+    raise Py4JJavaError(
+py4j.protocol.Py4JJavaError: An error occurred while calling o338.save.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 7 in stage 18.0 failed 1 times, most recent failure: Lost task 7.0 in stage 18.0 (TID 56) (idowu-pc.home executor driver): java.sql.BatchUpdateException: Batch entry 0 INSERT INTO raw.datetime_trip_table ("datetime_id","tpep_dropoff_datetime","tpep_pickup_datetime","pickup_year","pickup_month","pickup_day","pickup_hour","pickup_minute","pickup_day_of_week","pickup_day_name","pickup_is_month_end","dropoff_year","dropoff_month","dropoff_day","dropoff_hour","dropoff_minute","dropoff_day_of_week","dropoff_day_name","dropoff_is_month_end") VALUES ('2021-01-29 07:55:47_2021-01-29 08:13:59','2021-01-29 08:13:59+00'::timestamp,'2021-01-29 07:55:47+00'::timestamp,2021,1,29,7,55,6,'Friday','FALSE',2021,1,29,8,13,6,'Friday','FALSE') was aborted: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-01-29 07:55:47_2021-01-29 08:13:59) already exists.  Call getNextException to see other errors in the batch.
+	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:165)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2133)
+	at org.postgresql.core.v3.QueryExecutorImpl.flushIfDeadlockRisk(QueryExecutorImpl.java:1490)
+	at org.postgresql.core.v3.QueryExecutorImpl.sendQuery(QueryExecutorImpl.java:1515)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:559)
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:896)
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:919)
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1677)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.savePartition(JdbcUtils.scala:723)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1(JdbcUtils.scala:890)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1$adapted(JdbcUtils.scala:888)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2(RDD.scala:1020)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2$adapted(RDD.scala:1020)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2254)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1462)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-01-29 07:55:47_2021-01-29 08:13:59) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2712)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2400)
+	... 21 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2403)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2352)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2351)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2351)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1109)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1109)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1109)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:2591)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2533)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2522)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:898)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2214)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2235)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2254)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2279)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$1(RDD.scala:1020)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:414)
+	at org.apache.spark.rdd.RDD.foreachPartition(RDD.scala:1018)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.saveTable(JdbcUtils.scala:888)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcRelationProvider.createRelation(JdbcRelationProvider.scala:69)
+	at org.apache.spark.sql.execution.datasources.SaveIntoDataSourceCommand.run(SaveIntoDataSourceCommand.scala:45)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult$lzycompute(commands.scala:75)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult(commands.scala:73)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.executeCollect(commands.scala:84)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:110)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$5(SQLExecution.scala:103)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:163)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:90)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:775)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:64)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:110)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:106)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:82)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:457)
+	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:106)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:93)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:91)
+	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:128)
+	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:848)
+	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:382)
+	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:355)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:247)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: java.sql.BatchUpdateException: Batch entry 0 INSERT INTO raw.datetime_trip_table ("datetime_id","tpep_dropoff_datetime","tpep_pickup_datetime","pickup_year","pickup_month","pickup_day","pickup_hour","pickup_minute","pickup_day_of_week","pickup_day_name","pickup_is_month_end","dropoff_year","dropoff_month","dropoff_day","dropoff_hour","dropoff_minute","dropoff_day_of_week","dropoff_day_name","dropoff_is_month_end") VALUES ('2021-01-29 07:55:47_2021-01-29 08:13:59','2021-01-29 08:13:59+00'::timestamp,'2021-01-29 07:55:47+00'::timestamp,2021,1,29,7,55,6,'Friday','FALSE',2021,1,29,8,13,6,'Friday','FALSE') was aborted: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-01-29 07:55:47_2021-01-29 08:13:59) already exists.  Call getNextException to see other errors in the batch.
+	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:165)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2133)
+	at org.postgresql.core.v3.QueryExecutorImpl.flushIfDeadlockRisk(QueryExecutorImpl.java:1490)
+	at org.postgresql.core.v3.QueryExecutorImpl.sendQuery(QueryExecutorImpl.java:1515)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:559)
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:896)
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:919)
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1677)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.savePartition(JdbcUtils.scala:723)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1(JdbcUtils.scala:890)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1$adapted(JdbcUtils.scala:888)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2(RDD.scala:1020)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2$adapted(RDD.scala:1020)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2254)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1462)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	... 1 more
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-01-29 07:55:47_2021-01-29 08:13:59) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2712)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2400)
+	... 21 more
+
+[2024-02-29T05:23:03.060+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210101T000000, start_date=20240229T052159, end_date=20240229T052303
+[2024-02-29T05:23:03.078+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 53 for task download_load_data (An error occurred while calling o338.save.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 7 in stage 18.0 failed 1 times, most recent failure: Lost task 7.0 in stage 18.0 (TID 56) (idowu-pc.home executor driver): java.sql.BatchUpdateException: Batch entry 0 INSERT INTO raw.datetime_trip_table ("datetime_id","tpep_dropoff_datetime","tpep_pickup_datetime","pickup_year","pickup_month","pickup_day","pickup_hour","pickup_minute","pickup_day_of_week","pickup_day_name","pickup_is_month_end","dropoff_year","dropoff_month","dropoff_day","dropoff_hour","dropoff_minute","dropoff_day_of_week","dropoff_day_name","dropoff_is_month_end") VALUES ('2021-01-29 07:55:47_2021-01-29 08:13:59','2021-01-29 08:13:59+00'::timestamp,'2021-01-29 07:55:47+00'::timestamp,2021,1,29,7,55,6,'Friday','FALSE',2021,1,29,8,13,6,'Friday','FALSE') was aborted: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-01-29 07:55:47_2021-01-29 08:13:59) already exists.  Call getNextException to see other errors in the batch.
+	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:165)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2133)
+	at org.postgresql.core.v3.QueryExecutorImpl.flushIfDeadlockRisk(QueryExecutorImpl.java:1490)
+	at org.postgresql.core.v3.QueryExecutorImpl.sendQuery(QueryExecutorImpl.java:1515)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:559)
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:896)
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:919)
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1677)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.savePartition(JdbcUtils.scala:723)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1(JdbcUtils.scala:890)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1$adapted(JdbcUtils.scala:888)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2(RDD.scala:1020)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2$adapted(RDD.scala:1020)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2254)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1462)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-01-29 07:55:47_2021-01-29 08:13:59) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2712)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2400)
+	... 21 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2403)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2352)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2351)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2351)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1109)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1109)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1109)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:2591)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2533)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2522)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:898)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2214)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2235)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2254)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2279)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$1(RDD.scala:1020)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:414)
+	at org.apache.spark.rdd.RDD.foreachPartition(RDD.scala:1018)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.saveTable(JdbcUtils.scala:888)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcRelationProvider.createRelation(JdbcRelationProvider.scala:69)
+	at org.apache.spark.sql.execution.datasources.SaveIntoDataSourceCommand.run(SaveIntoDataSourceCommand.scala:45)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult$lzycompute(commands.scala:75)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult(commands.scala:73)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.executeCollect(commands.scala:84)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:110)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$5(SQLExecution.scala:103)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:163)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:90)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:775)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:64)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:110)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:106)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:82)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:457)
+	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:106)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:93)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:91)
+	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:128)
+	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:848)
+	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:382)
+	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:355)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:247)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: java.sql.BatchUpdateException: Batch entry 0 INSERT INTO raw.datetime_trip_table ("datetime_id","tpep_dropoff_datetime","tpep_pickup_datetime","pickup_year","pickup_month","pickup_day","pickup_hour","pickup_minute","pickup_day_of_week","pickup_day_name","pickup_is_month_end","dropoff_year","dropoff_month","dropoff_day","dropoff_hour","dropoff_minute","dropoff_day_of_week","dropoff_day_name","dropoff_is_month_end") VALUES ('2021-01-29 07:55:47_2021-01-29 08:13:59','2021-01-29 08:13:59+00'::timestamp,'2021-01-29 07:55:47+00'::timestamp,2021,1,29,7,55,6,'Friday','FALSE',2021,1,29,8,13,6,'Friday','FALSE') was aborted: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-01-29 07:55:47_2021-01-29 08:13:59) already exists.  Call getNextException to see other errors in the batch.
+	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:165)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2133)
+	at org.postgresql.core.v3.QueryExecutorImpl.flushIfDeadlockRisk(QueryExecutorImpl.java:1490)
+	at org.postgresql.core.v3.QueryExecutorImpl.sendQuery(QueryExecutorImpl.java:1515)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:559)
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:896)
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:919)
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1677)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.savePartition(JdbcUtils.scala:723)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1(JdbcUtils.scala:890)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1$adapted(JdbcUtils.scala:888)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2(RDD.scala:1020)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2$adapted(RDD.scala:1020)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2254)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1462)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	... 1 more
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-01-29 07:55:47_2021-01-29 08:13:59) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2712)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2400)
+	... 21 more
+; 1277490)
+[2024-02-29T05:23:03.110+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1

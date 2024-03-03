@@ -1,0 +1,38 @@
+[2024-02-29T05:30:59.372+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-11-01T00:00:00+00:00 [queued]>
+[2024-02-29T05:30:59.386+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-11-01T00:00:00+00:00 [queued]>
+[2024-02-29T05:30:59.387+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T05:30:59.418+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-11-01 00:00:00+00:00
+[2024-02-29T05:30:59.426+0000] {standard_task_runner.py:60} INFO - Started process 1287281 to run task
+[2024-02-29T05:30:59.432+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-11-01T00:00:00+00:00', '--job-id', '67', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmp18vjtnz_']
+[2024-02-29T05:30:59.434+0000] {standard_task_runner.py:88} INFO - Job 67: Subtask download_load_data
+[2024-02-29T05:30:59.567+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-11-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T05:30:59.820+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T05:30:59.960+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-11-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-11-01T00:00:00+00:00'
+[2024-02-29T05:30:59.961+0000] {logging_mixin.py:188} INFO - <class 'str'>
+[2024-02-29T05:30:59.962+0000] {logging_mixin.py:188} INFO - <class 'str'>
+[2024-02-29T05:30:59.962+0000] {logging_mixin.py:188} INFO - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/data/2021_11_data
+[2024-02-29T05:31:09.021+0000] {logging_mixin.py:188} INFO - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/data/2021_11_data/yellow_tripdata_2021-11.parquet
+[2024-02-29T05:31:29.481+0000] {logging_mixin.py:188} INFO - running the create_table_load_data
+[2024-02-29T05:31:29.519+0000] {logging_mixin.py:188} INFO - created the table and schema datetime_trip_table and raw
+[2024-02-29T05:31:29.520+0000] {logging_mixin.py:188} INFO - about to execute read_load_data_db
+[2024-02-29T05:31:29.520+0000] {logging_mixin.py:188} INFO - about to read the previous data from the raw.datetime_trip_table
+[2024-02-29T05:31:29.570+0000] {logging_mixin.py:188} INFO - (10, 19)
+[2024-02-29T05:32:02.278+0000] {logging_mixin.py:188} INFO - got the previous records
+[2024-02-29T05:32:02.279+0000] {logging_mixin.py:188} INFO - appending to table datetime_trip_table with raw
+[2024-02-29T05:51:27.521+0000] {logging_mixin.py:188} INFO - running the create_table_load_data
+[2024-02-29T05:51:27.542+0000] {logging_mixin.py:188} INFO - created the table and schema DIMENSION_TAXI_TABLE and raw
+[2024-02-29T05:51:27.557+0000] {logging_mixin.py:188} INFO - about to execute read_load_data_db
+[2024-02-29T05:51:27.557+0000] {logging_mixin.py:188} INFO - about to read the previous data from the raw.DIMENSION_TAXI_TABLE
+[2024-02-29T05:51:27.598+0000] {logging_mixin.py:188} INFO - (10, 6)
+[2024-02-29T05:51:45.465+0000] {logging_mixin.py:188} INFO - got the previous records
+[2024-02-29T05:51:45.466+0000] {logging_mixin.py:188} INFO - appending to table DIMENSION_TAXI_TABLE with raw
+[2024-02-29T05:55:06.224+0000] {logging_mixin.py:188} INFO - running the create_table_load_data
+[2024-02-29T05:55:06.227+0000] {logging_mixin.py:188} INFO - created the table and schema fact_table_taxi_ride and raw
+[2024-02-29T05:55:06.228+0000] {logging_mixin.py:188} INFO - about to execute read_load_data_db
+[2024-02-29T05:55:06.228+0000] {logging_mixin.py:188} INFO - about to read the previous data from the raw.fact_table_taxi_ride
+[2024-02-29T05:55:06.241+0000] {logging_mixin.py:188} INFO - (10, 12)
+[2024-02-29T05:55:16.976+0000] {logging_mixin.py:188} INFO - got the previous records
+[2024-02-29T05:55:16.976+0000] {logging_mixin.py:188} INFO - appending to table fact_table_taxi_ride with raw
+[2024-02-29T05:57:01.807+0000] {python.py:202} INFO - Done. Returned value was: None
+[2024-02-29T05:57:01.825+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20211101T000000, start_date=20240229T053059, end_date=20240229T055701
+[2024-02-29T05:57:01.854+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0

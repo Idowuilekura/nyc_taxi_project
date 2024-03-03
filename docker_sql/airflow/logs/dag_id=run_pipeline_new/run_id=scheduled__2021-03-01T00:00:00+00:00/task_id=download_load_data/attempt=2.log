@@ -1,0 +1,980 @@
+[2024-02-29T04:33:15.090+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-03-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:33:15.098+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-03-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:33:15.098+0000] {taskinstance.py:2193} INFO - Starting attempt 2 of 3
+[2024-02-29T04:33:15.113+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-03-01 00:00:00+00:00
+[2024-02-29T04:33:15.120+0000] {standard_task_runner.py:60} INFO - Started process 1219517 to run task
+[2024-02-29T04:33:15.123+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-03-01T00:00:00+00:00', '--job-id', '12', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmp3j12dkpz']
+[2024-02-29T04:33:15.125+0000] {standard_task_runner.py:88} INFO - Job 12: Subtask download_load_data
+[2024-02-29T04:33:15.202+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-03-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T04:33:15.361+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T04:33:15.413+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-03-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-03-01T00:00:00+00:00'
+[2024-02-29T04:33:15.414+0000] {logging_mixin.py:188} INFO - /2021_data
+[2024-02-29T04:33:15.414+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 27, in download_load_data
+    data_path, folder_path = download_store_data(year, month, parent_folder_path=parent_folder_path, create_new_folder=create_new_folder)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_extract.py", line 20, in download_store_data
+    os.makedirs(file_path, exist_ok=True,mode=0o777)
+  File "/usr/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '/2021_data'
+[2024-02-29T04:33:15.431+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210301T000000, start_date=20240229T043315, end_date=20240229T043315
+[2024-02-29T04:33:15.442+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 12 for task download_load_data ([Errno 13] Permission denied: '/2021_data'; 1219517)
+[2024-02-29T04:33:15.455+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-29T04:51:12.378+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-03-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:51:12.387+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-03-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:51:12.387+0000] {taskinstance.py:2193} INFO - Starting attempt 2 of 3
+[2024-02-29T04:51:12.398+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-03-01 00:00:00+00:00
+[2024-02-29T04:51:12.403+0000] {standard_task_runner.py:60} INFO - Started process 1239196 to run task
+[2024-02-29T04:51:12.406+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-03-01T00:00:00+00:00', '--job-id', '28', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmphdlq8vbe']
+[2024-02-29T04:51:12.408+0000] {standard_task_runner.py:88} INFO - Job 28: Subtask download_load_data
+[2024-02-29T04:51:12.490+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-03-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T04:51:12.659+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T04:51:12.717+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-03-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-03-01T00:00:00+00:00'
+[2024-02-29T04:51:12.718+0000] {logging_mixin.py:188} INFO - /2021_03_data
+[2024-02-29T04:51:12.719+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 27, in download_load_data
+    data_path, folder_path = download_store_data(year, month, parent_folder_path=parent_folder_path, create_new_folder=create_new_folder)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_extract.py", line 21, in download_store_data
+    os.makedirs(file_path, exist_ok=True,mode=0o777)
+  File "/usr/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '/2021_03_data'
+[2024-02-29T04:51:12.741+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210301T000000, start_date=20240229T045112, end_date=20240229T045112
+[2024-02-29T04:51:12.752+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 28 for task download_load_data ([Errno 13] Permission denied: '/2021_03_data'; 1239196)
+[2024-02-29T04:51:12.778+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-29T05:13:09.247+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-03-01T00:00:00+00:00 [queued]>
+[2024-02-29T05:13:09.257+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-03-01T00:00:00+00:00 [queued]>
+[2024-02-29T05:13:09.257+0000] {taskinstance.py:2193} INFO - Starting attempt 2 of 3
+[2024-02-29T05:13:09.274+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-03-01 00:00:00+00:00
+[2024-02-29T05:13:09.280+0000] {standard_task_runner.py:60} INFO - Started process 1266669 to run task
+[2024-02-29T05:13:09.284+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-03-01T00:00:00+00:00', '--job-id', '52', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmpxl7azpv1']
+[2024-02-29T05:13:09.286+0000] {standard_task_runner.py:88} INFO - Job 52: Subtask download_load_data
+[2024-02-29T05:13:09.361+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-03-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T05:13:09.518+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T05:13:09.567+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-03-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-03-01T00:00:00+00:00'
+[2024-02-29T05:13:09.567+0000] {logging_mixin.py:188} INFO - <class 'str'>
+[2024-02-29T05:13:09.568+0000] {logging_mixin.py:188} INFO - <class 'str'>
+[2024-02-29T05:13:09.568+0000] {logging_mixin.py:188} INFO - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/data/2023_1_data
+[2024-02-29T05:13:10.769+0000] {logging_mixin.py:188} INFO - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/data/2023_1_data/yellow_tripdata_2021-03.parquet
+[2024-02-29T05:13:14.887+0000] {logging_mixin.py:188} INFO - running the create_table_load_data
+[2024-02-29T05:13:14.903+0000] {logging_mixin.py:188} INFO - created the table and schema datetime_trip_table and raw
+[2024-02-29T05:13:14.904+0000] {logging_mixin.py:188} INFO - about to execute read_load_data_db
+[2024-02-29T05:13:14.904+0000] {logging_mixin.py:188} INFO - about to read the previous data from the raw.datetime_trip_table
+[2024-02-29T05:13:14.911+0000] {logging_mixin.py:188} INFO - (10, 19)
+[2024-02-29T05:13:20.422+0000] {logging_mixin.py:188} INFO - got the previous records
+[2024-02-29T05:13:20.422+0000] {logging_mixin.py:188} INFO - appending to table datetime_trip_table with raw
+[2024-02-29T05:13:47.295+0000] {logging_mixin.py:188} INFO - could not read previous records
+[2024-02-29T05:13:47.296+0000] {logging_mixin.py:188} INFO - there are no records in the database
+[2024-02-29T05:14:06.745+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_load_sql.py", line 263, in read_load_data_db
+    df.repartition(100).write.format("jdbc").option("url", jdbc_uri).option("driver", "org.postgresql.Driver").option("dbtable", f"{schema_name}.{table_name}").option("user",db_user).option("password", db_password_quote).mode('append').save()
+  File "/opt/spark/python/pyspark/sql/readwriter.py", line 738, in save
+    self._jwrite.save()
+  File "/opt/spark/python/lib/py4j-0.10.9.2-src.zip/py4j/java_gateway.py", line 1309, in __call__
+    return_value = get_return_value(
+  File "/opt/spark/python/pyspark/sql/utils.py", line 111, in deco
+    return f(*a, **kw)
+  File "/opt/spark/python/lib/py4j-0.10.9.2-src.zip/py4j/protocol.py", line 326, in get_return_value
+    raise Py4JJavaError(
+py4j.protocol.Py4JJavaError: An error occurred while calling o326.save.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 1 in stage 12.0 failed 1 times, most recent failure: Lost task 1.0 in stage 12.0 (TID 29) (idowu-pc.home executor driver): java.sql.BatchUpdateException: Batch entry 0 INSERT INTO raw.datetime_trip_table ("datetime_id","tpep_dropoff_datetime","tpep_pickup_datetime","pickup_year","pickup_month","pickup_day","pickup_hour","pickup_minute","pickup_day_of_week","pickup_day_name","pickup_is_month_end","dropoff_year","dropoff_month","dropoff_day","dropoff_hour","dropoff_minute","dropoff_day_of_week","dropoff_day_name","dropoff_is_month_end") VALUES ('2021-03-29 17:23:32_2021-03-29 17:28:16','2021-03-29 17:28:16+01'::timestamp,'2021-03-29 17:23:32+01'::timestamp,2021,3,29,17,23,2,'Monday','FALSE',2021,3,29,17,28,2,'Monday','FALSE') was aborted: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-29 17:23:32_2021-03-29 17:28:16) already exists.  Call getNextException to see other errors in the batch.
+	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:165)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2133)
+	at org.postgresql.core.v3.QueryExecutorImpl.flushIfDeadlockRisk(QueryExecutorImpl.java:1490)
+	at org.postgresql.core.v3.QueryExecutorImpl.sendQuery(QueryExecutorImpl.java:1515)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:559)
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:896)
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:919)
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1677)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.savePartition(JdbcUtils.scala:723)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1(JdbcUtils.scala:890)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1$adapted(JdbcUtils.scala:888)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2(RDD.scala:1020)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2$adapted(RDD.scala:1020)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2254)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1462)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-29 17:23:32_2021-03-29 17:28:16) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2712)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2400)
+	... 21 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2403)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2352)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2351)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2351)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1109)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1109)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1109)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:2591)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2533)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2522)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:898)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2214)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2235)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2254)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2279)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$1(RDD.scala:1020)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:414)
+	at org.apache.spark.rdd.RDD.foreachPartition(RDD.scala:1018)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.saveTable(JdbcUtils.scala:888)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcRelationProvider.createRelation(JdbcRelationProvider.scala:69)
+	at org.apache.spark.sql.execution.datasources.SaveIntoDataSourceCommand.run(SaveIntoDataSourceCommand.scala:45)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult$lzycompute(commands.scala:75)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult(commands.scala:73)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.executeCollect(commands.scala:84)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:110)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$5(SQLExecution.scala:103)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:163)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:90)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:775)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:64)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:110)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:106)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:82)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:457)
+	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:106)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:93)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:91)
+	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:128)
+	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:848)
+	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:382)
+	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:355)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:247)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: java.sql.BatchUpdateException: Batch entry 0 INSERT INTO raw.datetime_trip_table ("datetime_id","tpep_dropoff_datetime","tpep_pickup_datetime","pickup_year","pickup_month","pickup_day","pickup_hour","pickup_minute","pickup_day_of_week","pickup_day_name","pickup_is_month_end","dropoff_year","dropoff_month","dropoff_day","dropoff_hour","dropoff_minute","dropoff_day_of_week","dropoff_day_name","dropoff_is_month_end") VALUES ('2021-03-29 17:23:32_2021-03-29 17:28:16','2021-03-29 17:28:16+01'::timestamp,'2021-03-29 17:23:32+01'::timestamp,2021,3,29,17,23,2,'Monday','FALSE',2021,3,29,17,28,2,'Monday','FALSE') was aborted: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-29 17:23:32_2021-03-29 17:28:16) already exists.  Call getNextException to see other errors in the batch.
+	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:165)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2133)
+	at org.postgresql.core.v3.QueryExecutorImpl.flushIfDeadlockRisk(QueryExecutorImpl.java:1490)
+	at org.postgresql.core.v3.QueryExecutorImpl.sendQuery(QueryExecutorImpl.java:1515)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:559)
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:896)
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:919)
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1677)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.savePartition(JdbcUtils.scala:723)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1(JdbcUtils.scala:890)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1$adapted(JdbcUtils.scala:888)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2(RDD.scala:1020)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2$adapted(RDD.scala:1020)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2254)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1462)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	... 1 more
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-29 17:23:32_2021-03-29 17:28:16) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2712)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2400)
+	... 21 more
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 38, in download_load_data
+    create_table_load_data(time_table_data, 'datetime_trip_table','raw',create_time_table_statement,engine,jdbc_uri,db_user,db_password_quote)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_load_sql.py", line 321, in create_table_load_data
+    read_load_data_db(df,table_name, schema_name, jdbc_uri, db_user, db_password_quote, engine)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_load_sql.py", line 271, in read_load_data_db
+    df.repartition(100).write.format("jdbc").option("url", jdbc_uri).option("driver", "org.postgresql.Driver").option("dbtable", f"{schema_name}.{table_name}").option("user",db_user).option("password", db_password_quote).mode('append').save()
+  File "/opt/spark/python/pyspark/sql/readwriter.py", line 738, in save
+    self._jwrite.save()
+  File "/opt/spark/python/lib/py4j-0.10.9.2-src.zip/py4j/java_gateway.py", line 1309, in __call__
+    return_value = get_return_value(
+  File "/opt/spark/python/pyspark/sql/utils.py", line 111, in deco
+    return f(*a, **kw)
+  File "/opt/spark/python/lib/py4j-0.10.9.2-src.zip/py4j/protocol.py", line 326, in get_return_value
+    raise Py4JJavaError(
+py4j.protocol.Py4JJavaError: An error occurred while calling o338.save.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 3 in stage 18.0 failed 1 times, most recent failure: Lost task 3.0 in stage 18.0 (TID 60) (idowu-pc.home executor driver): java.sql.BatchUpdateException: Batch entry 0 INSERT INTO raw.datetime_trip_table ("datetime_id","tpep_dropoff_datetime","tpep_pickup_datetime","pickup_year","pickup_month","pickup_day","pickup_hour","pickup_minute","pickup_day_of_week","pickup_day_name","pickup_is_month_end","dropoff_year","dropoff_month","dropoff_day","dropoff_hour","dropoff_minute","dropoff_day_of_week","dropoff_day_name","dropoff_is_month_end") VALUES ('2021-03-15 09:16:50_2021-03-15 09:45:48','2021-03-15 09:45:48+00'::timestamp,'2021-03-15 09:16:50+00'::timestamp,2021,3,15,9,16,2,'Monday','FALSE',2021,3,15,9,45,2,'Monday','FALSE') was aborted: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-15 09:16:50_2021-03-15 09:45:48) already exists.  Call getNextException to see other errors in the batch.
+	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:165)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2133)
+	at org.postgresql.core.v3.QueryExecutorImpl.flushIfDeadlockRisk(QueryExecutorImpl.java:1490)
+	at org.postgresql.core.v3.QueryExecutorImpl.sendQuery(QueryExecutorImpl.java:1515)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:559)
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:896)
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:919)
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1677)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.savePartition(JdbcUtils.scala:723)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1(JdbcUtils.scala:890)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1$adapted(JdbcUtils.scala:888)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2(RDD.scala:1020)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2$adapted(RDD.scala:1020)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2254)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1462)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-15 09:16:50_2021-03-15 09:45:48) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2712)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2400)
+	... 21 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2403)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2352)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2351)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2351)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1109)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1109)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1109)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:2591)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2533)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2522)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:898)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2214)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2235)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2254)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2279)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$1(RDD.scala:1020)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:414)
+	at org.apache.spark.rdd.RDD.foreachPartition(RDD.scala:1018)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.saveTable(JdbcUtils.scala:888)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcRelationProvider.createRelation(JdbcRelationProvider.scala:69)
+	at org.apache.spark.sql.execution.datasources.SaveIntoDataSourceCommand.run(SaveIntoDataSourceCommand.scala:45)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult$lzycompute(commands.scala:75)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult(commands.scala:73)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.executeCollect(commands.scala:84)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:110)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$5(SQLExecution.scala:103)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:163)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:90)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:775)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:64)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:110)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:106)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:82)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:457)
+	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:106)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:93)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:91)
+	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:128)
+	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:848)
+	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:382)
+	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:355)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:247)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: java.sql.BatchUpdateException: Batch entry 0 INSERT INTO raw.datetime_trip_table ("datetime_id","tpep_dropoff_datetime","tpep_pickup_datetime","pickup_year","pickup_month","pickup_day","pickup_hour","pickup_minute","pickup_day_of_week","pickup_day_name","pickup_is_month_end","dropoff_year","dropoff_month","dropoff_day","dropoff_hour","dropoff_minute","dropoff_day_of_week","dropoff_day_name","dropoff_is_month_end") VALUES ('2021-03-15 09:16:50_2021-03-15 09:45:48','2021-03-15 09:45:48+00'::timestamp,'2021-03-15 09:16:50+00'::timestamp,2021,3,15,9,16,2,'Monday','FALSE',2021,3,15,9,45,2,'Monday','FALSE') was aborted: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-15 09:16:50_2021-03-15 09:45:48) already exists.  Call getNextException to see other errors in the batch.
+	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:165)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2133)
+	at org.postgresql.core.v3.QueryExecutorImpl.flushIfDeadlockRisk(QueryExecutorImpl.java:1490)
+	at org.postgresql.core.v3.QueryExecutorImpl.sendQuery(QueryExecutorImpl.java:1515)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:559)
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:896)
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:919)
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1677)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.savePartition(JdbcUtils.scala:723)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1(JdbcUtils.scala:890)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1$adapted(JdbcUtils.scala:888)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2(RDD.scala:1020)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2$adapted(RDD.scala:1020)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2254)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1462)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	... 1 more
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-15 09:16:50_2021-03-15 09:45:48) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2712)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2400)
+	... 21 more
+
+[2024-02-29T05:14:06.857+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210301T000000, start_date=20240229T051309, end_date=20240229T051406
+[2024-02-29T05:14:06.871+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 52 for task download_load_data (An error occurred while calling o338.save.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 3 in stage 18.0 failed 1 times, most recent failure: Lost task 3.0 in stage 18.0 (TID 60) (idowu-pc.home executor driver): java.sql.BatchUpdateException: Batch entry 0 INSERT INTO raw.datetime_trip_table ("datetime_id","tpep_dropoff_datetime","tpep_pickup_datetime","pickup_year","pickup_month","pickup_day","pickup_hour","pickup_minute","pickup_day_of_week","pickup_day_name","pickup_is_month_end","dropoff_year","dropoff_month","dropoff_day","dropoff_hour","dropoff_minute","dropoff_day_of_week","dropoff_day_name","dropoff_is_month_end") VALUES ('2021-03-15 09:16:50_2021-03-15 09:45:48','2021-03-15 09:45:48+00'::timestamp,'2021-03-15 09:16:50+00'::timestamp,2021,3,15,9,16,2,'Monday','FALSE',2021,3,15,9,45,2,'Monday','FALSE') was aborted: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-15 09:16:50_2021-03-15 09:45:48) already exists.  Call getNextException to see other errors in the batch.
+	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:165)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2133)
+	at org.postgresql.core.v3.QueryExecutorImpl.flushIfDeadlockRisk(QueryExecutorImpl.java:1490)
+	at org.postgresql.core.v3.QueryExecutorImpl.sendQuery(QueryExecutorImpl.java:1515)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:559)
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:896)
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:919)
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1677)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.savePartition(JdbcUtils.scala:723)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1(JdbcUtils.scala:890)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1$adapted(JdbcUtils.scala:888)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2(RDD.scala:1020)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2$adapted(RDD.scala:1020)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2254)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1462)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-15 09:16:50_2021-03-15 09:45:48) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2712)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2400)
+	... 21 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2403)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2352)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2351)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2351)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1109)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1109)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1109)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:2591)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2533)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2522)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:898)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2214)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2235)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2254)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2279)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$1(RDD.scala:1020)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:414)
+	at org.apache.spark.rdd.RDD.foreachPartition(RDD.scala:1018)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.saveTable(JdbcUtils.scala:888)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcRelationProvider.createRelation(JdbcRelationProvider.scala:69)
+	at org.apache.spark.sql.execution.datasources.SaveIntoDataSourceCommand.run(SaveIntoDataSourceCommand.scala:45)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult$lzycompute(commands.scala:75)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult(commands.scala:73)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.executeCollect(commands.scala:84)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:110)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$5(SQLExecution.scala:103)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:163)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:90)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:775)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:64)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:110)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:106)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:82)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:457)
+	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:106)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:93)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:91)
+	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:128)
+	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:848)
+	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:382)
+	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:355)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:247)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: java.sql.BatchUpdateException: Batch entry 0 INSERT INTO raw.datetime_trip_table ("datetime_id","tpep_dropoff_datetime","tpep_pickup_datetime","pickup_year","pickup_month","pickup_day","pickup_hour","pickup_minute","pickup_day_of_week","pickup_day_name","pickup_is_month_end","dropoff_year","dropoff_month","dropoff_day","dropoff_hour","dropoff_minute","dropoff_day_of_week","dropoff_day_name","dropoff_is_month_end") VALUES ('2021-03-15 09:16:50_2021-03-15 09:45:48','2021-03-15 09:45:48+00'::timestamp,'2021-03-15 09:16:50+00'::timestamp,2021,3,15,9,16,2,'Monday','FALSE',2021,3,15,9,45,2,'Monday','FALSE') was aborted: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-15 09:16:50_2021-03-15 09:45:48) already exists.  Call getNextException to see other errors in the batch.
+	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:165)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2133)
+	at org.postgresql.core.v3.QueryExecutorImpl.flushIfDeadlockRisk(QueryExecutorImpl.java:1490)
+	at org.postgresql.core.v3.QueryExecutorImpl.sendQuery(QueryExecutorImpl.java:1515)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:559)
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:896)
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:919)
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1677)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.savePartition(JdbcUtils.scala:723)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1(JdbcUtils.scala:890)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1$adapted(JdbcUtils.scala:888)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2(RDD.scala:1020)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2$adapted(RDD.scala:1020)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2254)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1462)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	... 1 more
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-15 09:16:50_2021-03-15 09:45:48) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2712)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2400)
+	... 21 more
+; 1266669)
+[2024-02-29T05:14:06.943+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-29T05:40:41.868+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-03-01T00:00:00+00:00 [queued]>
+[2024-02-29T05:40:41.891+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-03-01T00:00:00+00:00 [queued]>
+[2024-02-29T05:40:41.891+0000] {taskinstance.py:2193} INFO - Starting attempt 2 of 3
+[2024-02-29T05:40:41.926+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-03-01 00:00:00+00:00
+[2024-02-29T05:40:41.933+0000] {standard_task_runner.py:60} INFO - Started process 1298734 to run task
+[2024-02-29T05:40:41.938+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-03-01T00:00:00+00:00', '--job-id', '70', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmpljhx2fad']
+[2024-02-29T05:40:41.940+0000] {standard_task_runner.py:88} INFO - Job 70: Subtask download_load_data
+[2024-02-29T05:40:42.065+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-03-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T05:40:42.304+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T05:40:42.425+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-03-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-03-01T00:00:00+00:00'
+[2024-02-29T05:40:42.426+0000] {logging_mixin.py:188} INFO - <class 'str'>
+[2024-02-29T05:40:42.426+0000] {logging_mixin.py:188} INFO - <class 'str'>
+[2024-02-29T05:40:42.427+0000] {logging_mixin.py:188} INFO - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/data/2021_03_data
+[2024-02-29T05:40:43.604+0000] {logging_mixin.py:188} INFO - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/data/2021_03_data/yellow_tripdata_2021-03.parquet
+[2024-02-29T05:40:55.842+0000] {logging_mixin.py:188} INFO - running the create_table_load_data
+[2024-02-29T05:40:56.017+0000] {logging_mixin.py:188} INFO - created the table and schema datetime_trip_table and raw
+[2024-02-29T05:40:56.018+0000] {logging_mixin.py:188} INFO - about to execute read_load_data_db
+[2024-02-29T05:40:56.019+0000] {logging_mixin.py:188} INFO - about to read the previous data from the raw.datetime_trip_table
+[2024-02-29T05:40:56.058+0000] {logging_mixin.py:188} INFO - (10, 19)
+[2024-02-29T05:41:04.944+0000] {logging_mixin.py:188} INFO - got the previous records
+[2024-02-29T05:41:04.945+0000] {logging_mixin.py:188} INFO - appending to table datetime_trip_table with raw
+[2024-02-29T05:41:39.584+0000] {logging_mixin.py:188} INFO - could not read previous records
+[2024-02-29T05:41:39.584+0000] {logging_mixin.py:188} INFO - there are no records in the database
+[2024-02-29T05:42:04.429+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_load_sql.py", line 263, in read_load_data_db
+    df.repartition(100).write.format("jdbc").option("url", jdbc_uri).option("driver", "org.postgresql.Driver").option("dbtable", f"{schema_name}.{table_name}").option("user",db_user).option("password", db_password_quote).mode('append').save()
+  File "/opt/spark/python/pyspark/sql/readwriter.py", line 738, in save
+    self._jwrite.save()
+  File "/opt/spark/python/lib/py4j-0.10.9.2-src.zip/py4j/java_gateway.py", line 1309, in __call__
+    return_value = get_return_value(
+  File "/opt/spark/python/pyspark/sql/utils.py", line 111, in deco
+    return f(*a, **kw)
+  File "/opt/spark/python/lib/py4j-0.10.9.2-src.zip/py4j/protocol.py", line 326, in get_return_value
+    raise Py4JJavaError(
+py4j.protocol.Py4JJavaError: An error occurred while calling o326.save.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 6 in stage 12.0 failed 1 times, most recent failure: Lost task 6.0 in stage 12.0 (TID 34) (idowu-pc.home executor driver): java.sql.BatchUpdateException: Batch entry 0 INSERT INTO raw.datetime_trip_table ("datetime_id","tpep_dropoff_datetime","tpep_pickup_datetime","pickup_year","pickup_month","pickup_day","pickup_hour","pickup_minute","pickup_day_of_week","pickup_day_name","pickup_is_month_end","dropoff_year","dropoff_month","dropoff_day","dropoff_hour","dropoff_minute","dropoff_day_of_week","dropoff_day_name","dropoff_is_month_end") VALUES ('2021-03-09 13:20:19_2021-03-09 13:26:27','2021-03-09 13:26:27+00'::timestamp,'2021-03-09 13:20:19+00'::timestamp,2021,3,9,13,20,3,'Tuesday','FALSE',2021,3,9,13,26,3,'Tuesday','FALSE') was aborted: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-09 13:20:19_2021-03-09 13:26:27) already exists.  Call getNextException to see other errors in the batch.
+	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:165)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2133)
+	at org.postgresql.core.v3.QueryExecutorImpl.flushIfDeadlockRisk(QueryExecutorImpl.java:1490)
+	at org.postgresql.core.v3.QueryExecutorImpl.sendQuery(QueryExecutorImpl.java:1515)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:559)
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:896)
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:919)
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1677)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.savePartition(JdbcUtils.scala:723)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1(JdbcUtils.scala:890)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1$adapted(JdbcUtils.scala:888)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2(RDD.scala:1020)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2$adapted(RDD.scala:1020)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2254)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1462)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-09 13:20:19_2021-03-09 13:26:27) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2712)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2400)
+	... 21 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2403)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2352)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2351)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2351)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1109)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1109)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1109)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:2591)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2533)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2522)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:898)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2214)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2235)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2254)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2279)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$1(RDD.scala:1020)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:414)
+	at org.apache.spark.rdd.RDD.foreachPartition(RDD.scala:1018)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.saveTable(JdbcUtils.scala:888)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcRelationProvider.createRelation(JdbcRelationProvider.scala:69)
+	at org.apache.spark.sql.execution.datasources.SaveIntoDataSourceCommand.run(SaveIntoDataSourceCommand.scala:45)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult$lzycompute(commands.scala:75)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult(commands.scala:73)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.executeCollect(commands.scala:84)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:110)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$5(SQLExecution.scala:103)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:163)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:90)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:775)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:64)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:110)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:106)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:82)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:457)
+	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:106)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:93)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:91)
+	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:128)
+	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:848)
+	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:382)
+	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:355)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:247)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: java.sql.BatchUpdateException: Batch entry 0 INSERT INTO raw.datetime_trip_table ("datetime_id","tpep_dropoff_datetime","tpep_pickup_datetime","pickup_year","pickup_month","pickup_day","pickup_hour","pickup_minute","pickup_day_of_week","pickup_day_name","pickup_is_month_end","dropoff_year","dropoff_month","dropoff_day","dropoff_hour","dropoff_minute","dropoff_day_of_week","dropoff_day_name","dropoff_is_month_end") VALUES ('2021-03-09 13:20:19_2021-03-09 13:26:27','2021-03-09 13:26:27+00'::timestamp,'2021-03-09 13:20:19+00'::timestamp,2021,3,9,13,20,3,'Tuesday','FALSE',2021,3,9,13,26,3,'Tuesday','FALSE') was aborted: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-09 13:20:19_2021-03-09 13:26:27) already exists.  Call getNextException to see other errors in the batch.
+	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:165)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2133)
+	at org.postgresql.core.v3.QueryExecutorImpl.flushIfDeadlockRisk(QueryExecutorImpl.java:1490)
+	at org.postgresql.core.v3.QueryExecutorImpl.sendQuery(QueryExecutorImpl.java:1515)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:559)
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:896)
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:919)
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1677)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.savePartition(JdbcUtils.scala:723)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1(JdbcUtils.scala:890)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1$adapted(JdbcUtils.scala:888)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2(RDD.scala:1020)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2$adapted(RDD.scala:1020)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2254)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1462)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	... 1 more
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-09 13:20:19_2021-03-09 13:26:27) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2712)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2400)
+	... 21 more
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 38, in download_load_data
+    create_table_load_data(time_table_data, 'datetime_trip_table','raw',create_time_table_statement,engine,jdbc_uri,db_user,db_password_quote)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_load_sql.py", line 321, in create_table_load_data
+    read_load_data_db(df,table_name, schema_name, jdbc_uri, db_user, db_password_quote, engine)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_load_sql.py", line 271, in read_load_data_db
+    df.repartition(100).write.format("jdbc").option("url", jdbc_uri).option("driver", "org.postgresql.Driver").option("dbtable", f"{schema_name}.{table_name}").option("user",db_user).option("password", db_password_quote).mode('append').save()
+  File "/opt/spark/python/pyspark/sql/readwriter.py", line 738, in save
+    self._jwrite.save()
+  File "/opt/spark/python/lib/py4j-0.10.9.2-src.zip/py4j/java_gateway.py", line 1309, in __call__
+    return_value = get_return_value(
+  File "/opt/spark/python/pyspark/sql/utils.py", line 111, in deco
+    return f(*a, **kw)
+  File "/opt/spark/python/lib/py4j-0.10.9.2-src.zip/py4j/protocol.py", line 326, in get_return_value
+    raise Py4JJavaError(
+py4j.protocol.Py4JJavaError: An error occurred while calling o338.save.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 5 in stage 18.0 failed 1 times, most recent failure: Lost task 5.0 in stage 18.0 (TID 61) (idowu-pc.home executor driver): java.sql.BatchUpdateException: Batch entry 0 INSERT INTO raw.datetime_trip_table ("datetime_id","tpep_dropoff_datetime","tpep_pickup_datetime","pickup_year","pickup_month","pickup_day","pickup_hour","pickup_minute","pickup_day_of_week","pickup_day_name","pickup_is_month_end","dropoff_year","dropoff_month","dropoff_day","dropoff_hour","dropoff_minute","dropoff_day_of_week","dropoff_day_name","dropoff_is_month_end") VALUES ('2021-03-16 22:09:44_2021-03-16 22:11:56','2021-03-16 22:11:56+00'::timestamp,'2021-03-16 22:09:44+00'::timestamp,2021,3,16,22,9,3,'Tuesday','FALSE',2021,3,16,22,11,3,'Tuesday','FALSE') was aborted: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-16 22:09:44_2021-03-16 22:11:56) already exists.  Call getNextException to see other errors in the batch.
+	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:165)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2133)
+	at org.postgresql.core.v3.QueryExecutorImpl.flushIfDeadlockRisk(QueryExecutorImpl.java:1490)
+	at org.postgresql.core.v3.QueryExecutorImpl.sendQuery(QueryExecutorImpl.java:1515)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:559)
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:896)
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:919)
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1677)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.savePartition(JdbcUtils.scala:723)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1(JdbcUtils.scala:890)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1$adapted(JdbcUtils.scala:888)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2(RDD.scala:1020)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2$adapted(RDD.scala:1020)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2254)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1462)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-16 22:09:44_2021-03-16 22:11:56) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2712)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2400)
+	... 21 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2403)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2352)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2351)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2351)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1109)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1109)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1109)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:2591)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2533)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2522)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:898)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2214)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2235)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2254)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2279)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$1(RDD.scala:1020)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:414)
+	at org.apache.spark.rdd.RDD.foreachPartition(RDD.scala:1018)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.saveTable(JdbcUtils.scala:888)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcRelationProvider.createRelation(JdbcRelationProvider.scala:69)
+	at org.apache.spark.sql.execution.datasources.SaveIntoDataSourceCommand.run(SaveIntoDataSourceCommand.scala:45)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult$lzycompute(commands.scala:75)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult(commands.scala:73)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.executeCollect(commands.scala:84)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:110)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$5(SQLExecution.scala:103)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:163)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:90)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:775)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:64)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:110)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:106)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:82)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:457)
+	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:106)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:93)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:91)
+	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:128)
+	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:848)
+	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:382)
+	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:355)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:247)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: java.sql.BatchUpdateException: Batch entry 0 INSERT INTO raw.datetime_trip_table ("datetime_id","tpep_dropoff_datetime","tpep_pickup_datetime","pickup_year","pickup_month","pickup_day","pickup_hour","pickup_minute","pickup_day_of_week","pickup_day_name","pickup_is_month_end","dropoff_year","dropoff_month","dropoff_day","dropoff_hour","dropoff_minute","dropoff_day_of_week","dropoff_day_name","dropoff_is_month_end") VALUES ('2021-03-16 22:09:44_2021-03-16 22:11:56','2021-03-16 22:11:56+00'::timestamp,'2021-03-16 22:09:44+00'::timestamp,2021,3,16,22,9,3,'Tuesday','FALSE',2021,3,16,22,11,3,'Tuesday','FALSE') was aborted: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-16 22:09:44_2021-03-16 22:11:56) already exists.  Call getNextException to see other errors in the batch.
+	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:165)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2133)
+	at org.postgresql.core.v3.QueryExecutorImpl.flushIfDeadlockRisk(QueryExecutorImpl.java:1490)
+	at org.postgresql.core.v3.QueryExecutorImpl.sendQuery(QueryExecutorImpl.java:1515)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:559)
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:896)
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:919)
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1677)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.savePartition(JdbcUtils.scala:723)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1(JdbcUtils.scala:890)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1$adapted(JdbcUtils.scala:888)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2(RDD.scala:1020)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2$adapted(RDD.scala:1020)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2254)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1462)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	... 1 more
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-16 22:09:44_2021-03-16 22:11:56) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2712)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2400)
+	... 21 more
+
+[2024-02-29T05:42:04.565+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210301T000000, start_date=20240229T054041, end_date=20240229T054204
+[2024-02-29T05:42:04.591+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 70 for task download_load_data (An error occurred while calling o338.save.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 5 in stage 18.0 failed 1 times, most recent failure: Lost task 5.0 in stage 18.0 (TID 61) (idowu-pc.home executor driver): java.sql.BatchUpdateException: Batch entry 0 INSERT INTO raw.datetime_trip_table ("datetime_id","tpep_dropoff_datetime","tpep_pickup_datetime","pickup_year","pickup_month","pickup_day","pickup_hour","pickup_minute","pickup_day_of_week","pickup_day_name","pickup_is_month_end","dropoff_year","dropoff_month","dropoff_day","dropoff_hour","dropoff_minute","dropoff_day_of_week","dropoff_day_name","dropoff_is_month_end") VALUES ('2021-03-16 22:09:44_2021-03-16 22:11:56','2021-03-16 22:11:56+00'::timestamp,'2021-03-16 22:09:44+00'::timestamp,2021,3,16,22,9,3,'Tuesday','FALSE',2021,3,16,22,11,3,'Tuesday','FALSE') was aborted: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-16 22:09:44_2021-03-16 22:11:56) already exists.  Call getNextException to see other errors in the batch.
+	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:165)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2133)
+	at org.postgresql.core.v3.QueryExecutorImpl.flushIfDeadlockRisk(QueryExecutorImpl.java:1490)
+	at org.postgresql.core.v3.QueryExecutorImpl.sendQuery(QueryExecutorImpl.java:1515)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:559)
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:896)
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:919)
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1677)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.savePartition(JdbcUtils.scala:723)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1(JdbcUtils.scala:890)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1$adapted(JdbcUtils.scala:888)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2(RDD.scala:1020)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2$adapted(RDD.scala:1020)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2254)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1462)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-16 22:09:44_2021-03-16 22:11:56) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2712)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2400)
+	... 21 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2403)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2352)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2351)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2351)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1109)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1109)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1109)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:2591)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2533)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2522)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:898)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2214)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2235)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2254)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2279)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$1(RDD.scala:1020)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:414)
+	at org.apache.spark.rdd.RDD.foreachPartition(RDD.scala:1018)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.saveTable(JdbcUtils.scala:888)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcRelationProvider.createRelation(JdbcRelationProvider.scala:69)
+	at org.apache.spark.sql.execution.datasources.SaveIntoDataSourceCommand.run(SaveIntoDataSourceCommand.scala:45)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult$lzycompute(commands.scala:75)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult(commands.scala:73)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.executeCollect(commands.scala:84)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:110)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$5(SQLExecution.scala:103)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:163)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:90)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:775)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:64)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:110)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:106)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:82)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:457)
+	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:106)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:93)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:91)
+	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:128)
+	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:848)
+	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:382)
+	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:355)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:247)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: java.sql.BatchUpdateException: Batch entry 0 INSERT INTO raw.datetime_trip_table ("datetime_id","tpep_dropoff_datetime","tpep_pickup_datetime","pickup_year","pickup_month","pickup_day","pickup_hour","pickup_minute","pickup_day_of_week","pickup_day_name","pickup_is_month_end","dropoff_year","dropoff_month","dropoff_day","dropoff_hour","dropoff_minute","dropoff_day_of_week","dropoff_day_name","dropoff_is_month_end") VALUES ('2021-03-16 22:09:44_2021-03-16 22:11:56','2021-03-16 22:11:56+00'::timestamp,'2021-03-16 22:09:44+00'::timestamp,2021,3,16,22,9,3,'Tuesday','FALSE',2021,3,16,22,11,3,'Tuesday','FALSE') was aborted: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-16 22:09:44_2021-03-16 22:11:56) already exists.  Call getNextException to see other errors in the batch.
+	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:165)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2133)
+	at org.postgresql.core.v3.QueryExecutorImpl.flushIfDeadlockRisk(QueryExecutorImpl.java:1490)
+	at org.postgresql.core.v3.QueryExecutorImpl.sendQuery(QueryExecutorImpl.java:1515)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:559)
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:896)
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:919)
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1677)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.savePartition(JdbcUtils.scala:723)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1(JdbcUtils.scala:890)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1$adapted(JdbcUtils.scala:888)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2(RDD.scala:1020)
+	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2$adapted(RDD.scala:1020)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2254)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1462)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	... 1 more
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "datetime_trip_table_pkey"
+  Detail: Key (datetime_id)=(2021-03-16 22:09:44_2021-03-16 22:11:56) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2712)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2400)
+	... 21 more
+; 1298734)
+[2024-02-29T05:42:04.628+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1

@@ -1,0 +1,38 @@
+
+ny_taxi:
+  outputs:
+    dev:
+      type: postgres
+      threads: 32
+      host: localhost
+      user: idowuuser
+      pass: passwordguddy
+      port: 5433
+      dbname: ny_taxi_database
+      schema: staging # e.g. dbt_alice
+    production:
+      type: postgres
+      threads: 32
+      host: idowupostgresserver.postgres.database.azure.com
+      user: idowuadmin
+      pass: Ekabagoodness@96
+      port: 5432
+      dbname: ny_taxi_database
+      schema: staging
+
+  target: production
+
+
+
+# ny_taxi:
+#   outputs:
+#     dev:
+#       type: postgres
+#       threads: 32
+#       host: localhost
+#       user: idowuuser
+#       pass: passwordguddy
+#       port: 5433
+#       dbname: ny_taxi_database
+#       schema: staging # e.g. dbt_alice
+#   target: dev

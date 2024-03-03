@@ -1,0 +1,349 @@
+[2024-02-29T04:28:06.739+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:28:06.748+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:28:06.749+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T04:28:06.762+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-02-01 00:00:00+00:00
+[2024-02-29T04:28:06.768+0000] {standard_task_runner.py:60} INFO - Started process 1214358 to run task
+[2024-02-29T04:28:06.774+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-02-01T00:00:00+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmpt006lha6']
+[2024-02-29T04:28:06.776+0000] {standard_task_runner.py:88} INFO - Job 9: Subtask download_load_data
+[2024-02-29T04:28:06.883+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T04:28:07.094+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T04:28:07.162+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-02-01T00:00:00+00:00'
+[2024-02-29T04:28:07.163+0000] {logging_mixin.py:188} INFO - /2021_data
+[2024-02-29T04:28:07.163+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 27, in download_load_data
+    data_path, folder_path = download_store_data(year, month, parent_folder_path=parent_folder_path, create_new_folder=create_new_folder)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_extract.py", line 20, in download_store_data
+    os.makedirs(file_path, exist_ok=True,mode=0o777)
+  File "/usr/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '/2021_data'
+[2024-02-29T04:28:07.185+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210201T000000, start_date=20240229T042806, end_date=20240229T042807
+[2024-02-29T04:28:07.200+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 9 for task download_load_data ([Errno 13] Permission denied: '/2021_data'; 1214358)
+[2024-02-29T04:28:07.226+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-29T04:39:34.667+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:39:34.676+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:39:34.676+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T04:39:34.691+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-02-01 00:00:00+00:00
+[2024-02-29T04:39:34.697+0000] {standard_task_runner.py:60} INFO - Started process 1226850 to run task
+[2024-02-29T04:39:34.702+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-02-01T00:00:00+00:00', '--job-id', '18', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmpabam708w']
+[2024-02-29T04:39:34.704+0000] {standard_task_runner.py:88} INFO - Job 18: Subtask download_load_data
+[2024-02-29T04:39:34.792+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T04:39:34.978+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T04:39:35.042+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-02-01T00:00:00+00:00'
+[2024-02-29T04:39:35.043+0000] {logging_mixin.py:188} INFO - /2021_data
+[2024-02-29T04:39:35.044+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 27, in download_load_data
+    data_path, folder_path = download_store_data(year, month, parent_folder_path=parent_folder_path, create_new_folder=create_new_folder)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_extract.py", line 20, in download_store_data
+    os.makedirs(file_path, exist_ok=True,mode=0o777)
+  File "/usr/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '/2021_data'
+[2024-02-29T04:39:35.065+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210201T000000, start_date=20240229T043934, end_date=20240229T043935
+[2024-02-29T04:39:35.079+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 18 for task download_load_data ([Errno 13] Permission denied: '/2021_data'; 1226850)
+[2024-02-29T04:39:35.114+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-29T04:41:53.946+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:41:53.957+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:41:53.958+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T04:41:53.973+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-02-01 00:00:00+00:00
+[2024-02-29T04:41:53.979+0000] {standard_task_runner.py:60} INFO - Started process 1229646 to run task
+[2024-02-29T04:41:53.983+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-02-01T00:00:00+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmpmraxepue']
+[2024-02-29T04:41:53.985+0000] {standard_task_runner.py:88} INFO - Job 22: Subtask download_load_data
+[2024-02-29T04:41:54.068+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T04:41:54.262+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T04:41:54.323+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-02-01T00:00:00+00:00'
+[2024-02-29T04:41:54.324+0000] {logging_mixin.py:188} INFO - /2021_02_data
+[2024-02-29T04:41:54.324+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 27, in download_load_data
+    data_path, folder_path = download_store_data(year, month, parent_folder_path=parent_folder_path, create_new_folder=create_new_folder)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_extract.py", line 20, in download_store_data
+    os.makedirs(file_path, exist_ok=True,mode=0o777)
+  File "/usr/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '/2021_02_data'
+[2024-02-29T04:41:54.341+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210201T000000, start_date=20240229T044153, end_date=20240229T044154
+[2024-02-29T04:41:54.350+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 22 for task download_load_data ([Errno 13] Permission denied: '/2021_02_data'; 1229646)
+[2024-02-29T04:41:54.395+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-29T04:46:04.957+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:46:04.967+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:46:04.967+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T04:46:04.982+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-02-01 00:00:00+00:00
+[2024-02-29T04:46:04.988+0000] {standard_task_runner.py:60} INFO - Started process 1233725 to run task
+[2024-02-29T04:46:04.992+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-02-01T00:00:00+00:00', '--job-id', '23', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmpfcmn91zx']
+[2024-02-29T04:46:04.994+0000] {standard_task_runner.py:88} INFO - Job 23: Subtask download_load_data
+[2024-02-29T04:46:05.088+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T04:46:05.294+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T04:46:05.362+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-02-01T00:00:00+00:00'
+[2024-02-29T04:46:05.363+0000] {logging_mixin.py:188} INFO - /2021_02_data
+[2024-02-29T04:46:05.363+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 27, in download_load_data
+    data_path, folder_path = download_store_data(year, month, parent_folder_path=parent_folder_path, create_new_folder=create_new_folder)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_extract.py", line 21, in download_store_data
+    os.makedirs(file_path, exist_ok=True,mode=0o777)
+  File "/usr/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '/2021_02_data'
+[2024-02-29T04:46:05.383+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210201T000000, start_date=20240229T044604, end_date=20240229T044605
+[2024-02-29T04:46:05.397+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 23 for task download_load_data ([Errno 13] Permission denied: '/2021_02_data'; 1233725)
+[2024-02-29T04:46:05.446+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-29T04:53:21.138+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:53:21.147+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:53:21.147+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T04:53:21.161+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-02-01 00:00:00+00:00
+[2024-02-29T04:53:21.167+0000] {standard_task_runner.py:60} INFO - Started process 1241838 to run task
+[2024-02-29T04:53:21.171+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-02-01T00:00:00+00:00', '--job-id', '29', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmp76m5d29g']
+[2024-02-29T04:53:21.173+0000] {standard_task_runner.py:88} INFO - Job 29: Subtask download_load_data
+[2024-02-29T04:53:21.263+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T04:53:21.452+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T04:53:21.505+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-02-01T00:00:00+00:00'
+[2024-02-29T04:53:21.506+0000] {logging_mixin.py:188} INFO - /2021_02_data
+[2024-02-29T04:53:21.507+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 27, in download_load_data
+    data_path, folder_path = download_store_data(year, month, parent_folder_path=parent_folder_path, create_new_folder=create_new_folder)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_extract.py", line 21, in download_store_data
+    os.makedirs(file_path, exist_ok=True,mode=0o777)
+  File "/usr/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '/2021_02_data'
+[2024-02-29T04:53:21.524+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210201T000000, start_date=20240229T045321, end_date=20240229T045321
+[2024-02-29T04:53:21.536+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 29 for task download_load_data ([Errno 13] Permission denied: '/2021_02_data'; 1241838)
+[2024-02-29T04:53:21.583+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-29T04:55:02.442+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:55:02.452+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:55:02.453+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T04:55:02.469+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-02-01 00:00:00+00:00
+[2024-02-29T04:55:02.474+0000] {standard_task_runner.py:60} INFO - Started process 1244254 to run task
+[2024-02-29T04:55:02.480+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-02-01T00:00:00+00:00', '--job-id', '34', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmpjgnzr0ia']
+[2024-02-29T04:55:02.482+0000] {standard_task_runner.py:88} INFO - Job 34: Subtask download_load_data
+[2024-02-29T04:55:02.577+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T04:55:02.765+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T04:55:02.823+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-02-01T00:00:00+00:00'
+[2024-02-29T04:55:02.824+0000] {logging_mixin.py:188} INFO - /2021_02_data
+[2024-02-29T04:55:02.824+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 27, in download_load_data
+    data_path, folder_path = download_store_data(year, month, parent_folder_path=parent_folder_path, create_new_folder=create_new_folder)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_extract.py", line 22, in download_store_data
+    os.makedirs(file_path_new, exist_ok=True,mode=0o777)
+  File "/usr/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '//2021_02_data'
+[2024-02-29T04:55:02.842+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210201T000000, start_date=20240229T045502, end_date=20240229T045502
+[2024-02-29T04:55:02.853+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 34 for task download_load_data ([Errno 13] Permission denied: '//2021_02_data'; 1244254)
+[2024-02-29T04:55:02.892+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-29T04:57:14.957+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:57:14.967+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [queued]>
+[2024-02-29T04:57:14.968+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T04:57:14.985+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-02-01 00:00:00+00:00
+[2024-02-29T04:57:14.990+0000] {standard_task_runner.py:60} INFO - Started process 1247339 to run task
+[2024-02-29T04:57:14.994+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-02-01T00:00:00+00:00', '--job-id', '35', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmpn0gutmed']
+[2024-02-29T04:57:14.996+0000] {standard_task_runner.py:88} INFO - Job 35: Subtask download_load_data
+[2024-02-29T04:57:15.081+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T04:57:15.278+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T04:57:15.344+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-02-01T00:00:00+00:00'
+[2024-02-29T04:57:15.345+0000] {logging_mixin.py:188} INFO - <class 'str'>
+[2024-02-29T04:57:15.345+0000] {logging_mixin.py:188} INFO - <class 'str'>
+[2024-02-29T04:57:15.345+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 27, in download_load_data
+    data_path, folder_path = download_store_data(year, month, parent_folder_path=parent_folder_path, create_new_folder=create_new_folder)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_extract.py", line 28, in download_store_data
+    os.system(f"wget {url} -O {file_path}/yellow_tripdata_{year}-{month}.parquet")
+NameError: name 'file_path' is not defined
+[2024-02-29T04:57:15.366+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210201T000000, start_date=20240229T045714, end_date=20240229T045715
+[2024-02-29T04:57:15.378+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 35 for task download_load_data (name 'file_path' is not defined; 1247339)
+[2024-02-29T04:57:15.406+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-29T05:00:11.046+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [queued]>
+[2024-02-29T05:00:11.054+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [queued]>
+[2024-02-29T05:00:11.055+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T05:00:11.067+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-02-01 00:00:00+00:00
+[2024-02-29T05:00:11.072+0000] {standard_task_runner.py:60} INFO - Started process 1250387 to run task
+[2024-02-29T05:00:11.077+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-02-01T00:00:00+00:00', '--job-id', '38', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmpaqbyeb_4']
+[2024-02-29T05:00:11.079+0000] {standard_task_runner.py:88} INFO - Job 38: Subtask download_load_data
+[2024-02-29T05:00:11.161+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T05:00:11.382+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T05:00:11.448+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-02-01T00:00:00+00:00'
+[2024-02-29T05:00:11.450+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 27, in download_load_data
+    data_path, folder_path = download_store_data(year, month, parent_folder_path=parent_folder_path, create_new_folder=create_new_folder)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_extract.py", line 22, in download_store_data
+    os.makedirs(file_path, exist_ok=True,mode=0o777)
+  File "/usr/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '/2021_02_data'
+[2024-02-29T05:00:11.469+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210201T000000, start_date=20240229T050011, end_date=20240229T050011
+[2024-02-29T05:00:11.482+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 38 for task download_load_data ([Errno 13] Permission denied: '/2021_02_data'; 1250387)
+[2024-02-29T05:00:11.529+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-29T05:02:39.171+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [queued]>
+[2024-02-29T05:02:39.182+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [queued]>
+[2024-02-29T05:02:39.182+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T05:02:39.194+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-02-01 00:00:00+00:00
+[2024-02-29T05:02:39.201+0000] {standard_task_runner.py:60} INFO - Started process 1253266 to run task
+[2024-02-29T05:02:39.204+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-02-01T00:00:00+00:00', '--job-id', '42', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmpm666a_u6']
+[2024-02-29T05:02:39.206+0000] {standard_task_runner.py:88} INFO - Job 42: Subtask download_load_data
+[2024-02-29T05:02:39.285+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T05:02:39.480+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T05:02:39.542+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-02-01T00:00:00+00:00'
+[2024-02-29T05:02:39.543+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_run_etl_pipeline.py", line 27, in download_load_data
+    data_path, folder_path = download_store_data(year, month, parent_folder_path=parent_folder_path, create_new_folder=create_new_folder)
+  File "/home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/ny_taxi_extract.py", line 22, in download_store_data
+    os.makedirs(file_path, exist_ok=True,mode=0o777)
+  File "/usr/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '/2023_1_data'
+[2024-02-29T05:02:39.562+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210201T000000, start_date=20240229T050239, end_date=20240229T050239
+[2024-02-29T05:02:39.572+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 42 for task download_load_data ([Errno 13] Permission denied: '/2023_1_data'; 1253266)
+[2024-02-29T05:02:39.617+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-29T05:05:35.024+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [queued]>
+[2024-02-29T05:05:35.034+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [queued]>
+[2024-02-29T05:05:35.035+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T05:05:35.051+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-02-01 00:00:00+00:00
+[2024-02-29T05:05:35.057+0000] {standard_task_runner.py:60} INFO - Started process 1257074 to run task
+[2024-02-29T05:05:35.060+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-02-01T00:00:00+00:00', '--job-id', '45', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmpvcmeau23']
+[2024-02-29T05:05:35.062+0000] {standard_task_runner.py:88} INFO - Job 45: Subtask download_load_data
+[2024-02-29T05:05:35.139+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T05:05:35.316+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T05:05:35.373+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-02-01T00:00:00+00:00'
+[2024-02-29T05:05:35.375+0000] {logging_mixin.py:188} INFO - <class 'str'>
+[2024-02-29T05:05:35.375+0000] {logging_mixin.py:188} INFO - <class 'str'>
+[2024-02-29T05:05:35.375+0000] {logging_mixin.py:188} INFO - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/2023_1_data
+[2024-02-29T05:05:36.545+0000] {logging_mixin.py:188} INFO - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/2023_1_data/yellow_tripdata_2021-02.parquet
+[2024-02-29T05:05:44.150+0000] {logging_mixin.py:188} INFO - running the create_table_load_data
+[2024-02-29T05:05:44.195+0000] {logging_mixin.py:188} INFO - created the table and schema datetime_trip_table and raw
+[2024-02-29T05:05:44.197+0000] {logging_mixin.py:188} INFO - about to execute read_load_data_db
+[2024-02-29T05:05:44.198+0000] {logging_mixin.py:188} INFO - about to read the previous data from the raw.datetime_trip_table
+[2024-02-29T05:05:44.209+0000] {logging_mixin.py:188} INFO - (0, 19)
+[2024-02-29T05:05:45.466+0000] {logging_mixin.py:188} INFO - got the previous records
+[2024-02-29T05:06:46.315+0000] {logging_mixin.py:188} INFO - running the create_table_load_data
+[2024-02-29T05:06:46.335+0000] {logging_mixin.py:188} INFO - created the table and schema DIMENSION_TAXI_TABLE and raw
+[2024-02-29T05:06:46.369+0000] {logging_mixin.py:188} INFO - about to execute read_load_data_db
+[2024-02-29T05:06:46.370+0000] {logging_mixin.py:188} INFO - about to read the previous data from the raw.DIMENSION_TAXI_TABLE
+[2024-02-29T05:06:46.385+0000] {logging_mixin.py:188} INFO - (0, 6)
+[2024-02-29T05:06:46.663+0000] {logging_mixin.py:188} INFO - got the previous records
+[2024-02-29T05:07:19.793+0000] {logging_mixin.py:188} INFO - running the create_table_load_data
+[2024-02-29T05:07:19.800+0000] {logging_mixin.py:188} INFO - created the table and schema fact_table_taxi_ride and raw
+[2024-02-29T05:07:19.803+0000] {logging_mixin.py:188} INFO - about to execute read_load_data_db
+[2024-02-29T05:07:19.803+0000] {logging_mixin.py:188} INFO - about to read the previous data from the raw.fact_table_taxi_ride
+[2024-02-29T05:07:19.809+0000] {logging_mixin.py:188} INFO - (0, 12)
+[2024-02-29T05:07:19.899+0000] {logging_mixin.py:188} INFO - got the previous records
+[2024-02-29T05:07:52.561+0000] {python.py:202} INFO - Done. Returned value was: None
+[2024-02-29T05:07:52.593+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210201T000000, start_date=20240229T050535, end_date=20240229T050752
+[2024-02-29T05:07:52.656+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-02-29T05:21:59.184+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [queued]>
+[2024-02-29T05:21:59.195+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [queued]>
+[2024-02-29T05:21:59.196+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T05:21:59.213+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): download_load_data> on 2021-02-01 00:00:00+00:00
+[2024-02-29T05:21:59.220+0000] {standard_task_runner.py:60} INFO - Started process 1277499 to run task
+[2024-02-29T05:21:59.224+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_pipeline_new', 'download_load_data', 'scheduled__2021-02-01T00:00:00+00:00', '--job-id', '55', '--raw', '--subdir', 'DAGS_FOLDER/run_pipeline.py', '--cfg-path', '/tmp/tmpets0wz87']
+[2024-02-29T05:21:59.226+0000] {standard_task_runner.py:88} INFO - Job 55: Subtask download_load_data
+[2024-02-29T05:21:59.322+0000] {task_command.py:423} INFO - Running <TaskInstance: run_pipeline_new.download_load_data scheduled__2021-02-01T00:00:00+00:00 [running]> on host idowu-pc
+[2024-02-29T05:21:59.527+0000] {logging_mixin.py:188} WARNING - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/ny_taxi_test/dbtairflowenv/lib/python3.10/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-02-29T05:21:59.621+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='run_pipeline_new' AIRFLOW_CTX_TASK_ID='download_load_data' AIRFLOW_CTX_EXECUTION_DATE='2021-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-02-01T00:00:00+00:00'
+[2024-02-29T05:21:59.622+0000] {logging_mixin.py:188} INFO - <class 'str'>
+[2024-02-29T05:21:59.622+0000] {logging_mixin.py:188} INFO - <class 'str'>
+[2024-02-29T05:21:59.623+0000] {logging_mixin.py:188} INFO - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/data/2021_02_data
+[2024-02-29T05:22:00.946+0000] {logging_mixin.py:188} INFO - /home/idowuileks/Desktop/tech_project/nyc_taxi_project/docker_sql/etl_script/data/2021_02_data/yellow_tripdata_2021-02.parquet
+[2024-02-29T05:22:10.352+0000] {logging_mixin.py:188} INFO - running the create_table_load_data
+[2024-02-29T05:22:10.378+0000] {logging_mixin.py:188} INFO - created the table and schema datetime_trip_table and raw
+[2024-02-29T05:22:10.379+0000] {logging_mixin.py:188} INFO - about to execute read_load_data_db
+[2024-02-29T05:22:10.379+0000] {logging_mixin.py:188} INFO - about to read the previous data from the raw.datetime_trip_table
+[2024-02-29T05:22:10.392+0000] {logging_mixin.py:188} INFO - (10, 19)
+[2024-02-29T05:22:18.537+0000] {logging_mixin.py:188} INFO - got the previous records
+[2024-02-29T05:22:18.538+0000] {logging_mixin.py:188} INFO - cannot append duplicate values to table datetime_trip_table with raw
+[2024-02-29T05:22:18.538+0000] {logging_mixin.py:188} INFO - running the create_table_load_data
+[2024-02-29T05:22:18.539+0000] {logging_mixin.py:188} INFO - created the table and schema DIMENSION_TAXI_TABLE and raw
+[2024-02-29T05:22:18.542+0000] {logging_mixin.py:188} INFO - about to execute read_load_data_db
+[2024-02-29T05:22:18.543+0000] {logging_mixin.py:188} INFO - about to read the previous data from the raw.DIMENSION_TAXI_TABLE
+[2024-02-29T05:22:18.547+0000] {logging_mixin.py:188} INFO - (10, 6)
+[2024-02-29T05:22:22.720+0000] {logging_mixin.py:188} INFO - got the previous records
+[2024-02-29T05:22:22.721+0000] {logging_mixin.py:188} INFO - cannot append duplicate values to table DIMENSION_TAXI_TABLE with raw
+[2024-02-29T05:22:22.721+0000] {logging_mixin.py:188} INFO - running the create_table_load_data
+[2024-02-29T05:22:22.722+0000] {logging_mixin.py:188} INFO - created the table and schema fact_table_taxi_ride and raw
+[2024-02-29T05:22:22.723+0000] {logging_mixin.py:188} INFO - about to execute read_load_data_db
+[2024-02-29T05:22:22.724+0000] {logging_mixin.py:188} INFO - about to read the previous data from the raw.fact_table_taxi_ride
+[2024-02-29T05:22:22.731+0000] {logging_mixin.py:188} INFO - (10, 12)
+[2024-02-29T05:22:25.877+0000] {logging_mixin.py:188} INFO - got the previous records
+[2024-02-29T05:22:25.877+0000] {logging_mixin.py:188} INFO - cannot append duplicate values to table fact_table_taxi_ride with raw
+[2024-02-29T05:22:25.943+0000] {python.py:202} INFO - Done. Returned value was: None
+[2024-02-29T05:22:25.969+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=run_pipeline_new, task_id=download_load_data, execution_date=20210201T000000, start_date=20240229T052159, end_date=20240229T052225
+[2024-02-29T05:22:26.035+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0

@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: ny_taxi_raw
+    schema: raw
+    database: ny_taxi_database
+    tables:
+      - name: datetime_trip_table
+      - name: dimension_taxi_table
+      - name: fact_table_taxi_ride
+    
