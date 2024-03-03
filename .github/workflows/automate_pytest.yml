@@ -25,7 +25,7 @@ jobs:
                 wget https://archive.apache.org/dist/spark/spark-3.3.2/spark-3.3.2-bin-hadoop3.tgz && tar -xvf spark-3.3.2-bin-hadoop3.tgz --directory ${SPARK_HOME}
                 export SPARK_HOME="${SPARK_HOME}/spark-3.3.2-bin-hadoop3"
                 export PATH="${SPARK_HOME}/bin:${PATH}" 
-                exportPYTHONPATH="${SPARK_HOME}/python/:$PYTHONPATH"
+                export PYTHONPATH="${SPARK_HOME}/python/:$PYTHONPATH"
                 export PYTHONPATH="${SPARK_HOME}/python/lib/py4j-0.10.9.5-src.zip:$PYTHONPATH"
                 pip install -r ./docker_sql/requirements.txt
                 pytest ./docker_sql/test/test_download_data.py
