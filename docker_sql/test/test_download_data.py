@@ -1,6 +1,6 @@
 # import etl_script
 # # from ..etl_script import ny_taxi_extract
-from docker_sql.etl_script.ny_run_etl_pipeline import download_load_data_test
+from ..etl_script.ny_run_etl_pipeline import download_load_data_test
 # from docker_sql.etl_script.ny_taxi_transform import transform_data
 from docker_sql.etl_script.ny_taxi_extract import download_store_data
 # # from ..etl_script.ny_taxi_load_sql import create_table_load_data, create_dimension_table_statement, create_time_table_statement, fact_table_creation_sql, engine
@@ -17,10 +17,10 @@ from pyspark.sql.types import StringType
 from pyspark.sql.functions import col, year, month, dayofmonth, hour, minute, dayofweek, date_format, last_day
 
 # from ny_taxi_transform import transform_data
-from docker_sql.etl_script.ny_taxi_pyspark_transform import transform_data
+from ..etl_script.ny_taxi_pyspark_transform import transform_data
 # from etl_script.ny_taxi_extract import download_store_data
 # from ny_taxi_load_sql import create_table_load_data, create_dimension_table_statement, create_time_table_statement, fact_table_creation_sql
-from docker_sql.etl_script.ny_taxi_load_sql import fact_dimension_sql_statement,create_table_load_data
+from ..etl_script.ny_taxi_load_sql import fact_dimension_sql_statement,create_table_load_data
 import pandas as pd
 from sqlalchemy import create_engine
 from urllib.parse import quote_plus
