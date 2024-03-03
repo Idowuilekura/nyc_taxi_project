@@ -1,0 +1,32 @@
+name: nyc_taxi_actions
+on: 
+    push:
+        branches: [ "master" ]
+jobs:
+    build:
+        runs-on: ubuntu-latest 
+        steps:
+            - name: Checkout the Code
+              uses: actions/checkout@v2 
+
+            - name: instalL python
+              uses: actions/setup-python@v5
+              with:
+                python-version: '3.10'
+
+            - name: test the codef
+              run: |
+                pip install pytest 
+                mkdir -p /spark
+                exportSPARK_HOME=/spark
+                wget https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz &&tar -xvf openjdk-11.0.2_linux-x64_bin.tar.gz  --directory /spark
+                export JAVA_HOME="${SPARK_HOME}/jdk-11.0.2"
+                export PATH="${JAVA_HOME}/bin:${PATH}"
+                wget https://archive.apache.org/dist/spark/spark-3.3.2/spark-3.3.2-bin-hadoop3.tgz && tar -xvf spark-3.3.2-bin-hadoop3.tgz --directory /spark
+                export SPARK_HOME="${SPARK_HOME}/spark-3.3.2-bin-hadoop3"
+                export PATH="${SPARK_HOME}/bin:${PATH}" 
+                exportPYTHONPATH="${SPARK_HOME}/python/:$PYTHONPATH"
+                export PYTHONPATH="${SPARK_HOME}/python/lib/py4j-0.10.9.5-src.zip:$PYTHONPATH"
+                pip install -r ./docker_sql/requirements.txt
+                pytest ./docker_sql/test/test_download_data.py
+              working-directory: ${{ github.workspace }}
