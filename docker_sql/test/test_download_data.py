@@ -1,9 +1,9 @@
 # import etl_script
 # # from ..etl_script import ny_taxi_extract
-import sys
+# import sys
 
-# Verify the path you are adding to sys.path is correct
-sys.path.insert(0, './docker_sql')
+# # Verify the path you are adding to sys.path is correct
+# sys.path.insert(0, './docker_sql')
 from etl_script.ny_run_etl_pipeline import download_load_data_test
 # from docker_sql.etl_script.ny_taxi_transform import transform_data
 from etl_script.ny_taxi_extract import download_store_data
@@ -32,6 +32,7 @@ from urllib.parse import quote_plus
 db_host = os.getenv('POSTGRES_HOST', 'localhost')
 db_user = os.getenv('POSTGRES_USER', 'idowuuser')
 db_password = os.getenv('POSTGRES_PASSWORD')
+db_password = str(db_password)
 db_name = os.getenv('POSTGRES_DBNAME', 'ny_taxi_database')
 db_port = os.getenv('POSTGRES_PORT', '5433')
 # db_host = "localhost"
@@ -39,10 +40,10 @@ db_port = os.getenv('POSTGRES_PORT', '5433')
 # db_password = "passwordguddy"
 db_password_quote = quote_plus(db_password)
 # db_password_quote = db_password
-db_name = "ny_taxi_database"
+# db_name = "ny_taxi_database"
 # db_port = 5433
-database_uri = 'postgresql+psycopg2://' + db_user + ':' + db_password_quote + '@' + db_host + ':' + str(db_port) + '/' + db_name
-jdbc_uri =f"jdbc:postgresql://{db_host}:{str(db_port)}/{db_name}"
+database_uri = 'postgresql+psycopg2://' + str(db_user) + ':' + db_password_quote + '@' + str(db_host) + ':' + str(db_port) + '/' + str(db_name) #+ db_user + ':' + db_password_quote + '@' + db_host + ':' + str(db_port) + '/' + db_name
+jdbc_uri =f"jdbc:postgresql://{str(db_host)}:{str(str(db_port))}/{str(db_name)}"
 engine = create_engine(database_uri)
 spark = SparkSession.builder.appName("hello").config("spark.master", "local[*]").config("spark.jars.packages", "org.postgresql:postgresql:42.6.0").getOrCreate()
 spark.sparkContext.setLogLevel("ERROR")
@@ -111,7 +112,7 @@ def test_load_into_database(tmp_path):
     schema_name = 'raw_test'
     data = data.head(5)
     drop_table = True
-    download_load_data_test(2023, 3, tmp_dir,spark,jdbc_uri,db_user,db_password_quote,engine,drop_table,schema_name,create_new_folder=False)
+    download_load_data_test(2023, 3, tmp_dir,spark,jdbc_uri,db_user,db_password,engine,drop_table,schema_name,create_new_folder=False)
     
 #     dimension_table_data, time_table_data, fact_data_table = transform_data(data)
 
