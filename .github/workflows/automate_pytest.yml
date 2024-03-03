@@ -17,8 +17,8 @@ jobs:
             - name: test the codef
               run: |
                 pip install pytest 
-                mkdir -p /spark
-                exportSPARK_HOME=/spark
+                SPARK_HOME=$(mktemp -d)
+                export SPARK_HOME="${SPARK_HOME}"
                 wget https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz &&tar -xvf openjdk-11.0.2_linux-x64_bin.tar.gz  --directory /spark
                 export JAVA_HOME="${SPARK_HOME}/jdk-11.0.2"
                 export PATH="${JAVA_HOME}/bin:${PATH}"
