@@ -25,10 +25,6 @@ Version Control:
 Git: Facilitates collaborative development, version control, and efficient tracking of changes within the ETL pipeline codebase.
 Monitoring and Logging:
 
-Prometheus: Monitors the performance and health of the ETL pipeline.
-ELK Stack (Elasticsearch, Logstash, Kibana): Manages and analyzes logs generated during the ETL process.
-Security:
-
 Implementation of secure communication protocols ensures safe data transfer and storage.
 Encryption of sensitive data guarantees the confidentiality of passenger information.
 Extended Information
